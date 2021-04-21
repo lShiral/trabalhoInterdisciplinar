@@ -1,72 +1,183 @@
 #left {
-    background-color:rgba(192,192,192,0.2);
-    height:maximus;
-    width: 100%;
-    margin:0;
-    padding: 0;
+  background-color: rgba(192, 192, 192, 0.2);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#right {
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 100%;
+  height: maximus;
+  width: 100%;
 }
 #logo {
-    width: 40%;
+  width: 40%;
+  margin: 1rem;
+}
+#pasta,
+#pessoa,
+#engrenagem,
+#desliga {
+  color: #c7cadd;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 6rem;
+}
+
+#menu {
+  margin-top: 8rem;
+  margin-left: 2rem;
+  width: 100%;
+}
+
+#menu > div > a,
+#menu > div > a:visited {
+  text-decoration: none;
+  color: #8da1b5;
+}
+
+.ative {
+  color: #007bff !important;
+}
+#menu div a:hover {
+  color: black;
+}
+#menu div i,
+#menu div span {
+  margin-right: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  li a,
+  li a:visited,
+  li a:active {
+    text-decoration: none;
+    color: #8da1b5;
+  }
+  li a:active {
+    text-decoration: underline;
+  }
+  #menu div span {
+    margin-right: 0;
+  }
+  #logoimg {
+    width: 15%;
+    height: 10%;
+  }
+  #left {
+    box-sizing: border-box;
+    padding-top: 1rem;
+    height: maximus;
+  }
+  #right {
+    height: maximus;
     margin: 1rem;
+  }
+  #telfone,
+  #email,
+  #celular,
+  #SenhaAtual,
+  #Senha1,
+  #Senha2 {
+    margin-top: 1rem;
+  }
 }
-#pasta,#pessoa,#engrenagem,#desliga{
-    color: #C7CADD;
-    font-size: 2rem;
-    text-align: left;
-    margin-bottom: 6rem;
-}
-#menu{
-    margin-top: 8rem;
-    margin-left:2rem;
-    width: 100%;
-}
-i,span {
-    margin-right: 1rem;
-}
-#right{
+
+@media only screen and (max-width: 991.98px) and (min-height: 576px) {
+  #menu div span {
+    margin-right: 0;
+    margin-top: 0;
+  }
+  #logoimg {
+    width: 15%;
+    height: 2%;
+  }
+  #left {
+    padding-top: 1rem;
+    height: 100vh;
+  }
+  #menu {
+    padding: 0;
+    margin-left: 0;
+  }
+  #right {
     margin: 1rem;
-    width: maximum;
+    height: 100vh;
+  }
+  input {
+    font-size: 1rem !important;
+  }
 }
-p{
+@media (max-width: 991.98px) and (max-height: 576px) {
+  #left {
+    padding-top: 1rem;
+    height: maximus;
+  }
+  #right {
+    margin: 1rem;
+    height: maximus;
+  }
+}
+
+@media (min-width: 991.98px) and (min-height: 576px) {
+  #left {
+    padding-top: 1rem;
+    height: 100vh;
+  }
+  #right {
+    margin: 1rem;
+    height: 100vh;
+  }
+  #logo {
+    width: 60%;
+    margin: 1rem;
+  }
+  body {
+    font-size: 1.5rem;
+  }
+  small {
     font-size: 1rem;
-    margin: 1rem;
-    text-align: justify;
+  }
 }
 
-@media only screen and (max-width:767.98px) {
-    span{
-        margin-right: 0;
-    }
-    #logoimg{
-        width: 20%;
-        height: 10%;
-    }
-    #left{
-        padding: 1rem;
-    }
-    p{
-        font-size: 0.8rem;
-        margin: 1rem;
-        text-align: justify;
-    }
-    
-@media only screen and (max-width:991.98px) {
-    span{
-        margin-right: 0;
-    }
-    #logoimg{
-        width: 15%;
-        height: 2%;
-    }
-    #left{
-        padding: 1rem;
-    }
-    p{
-        font-size: 0.8rem;
-        margin: 1rem;
-        text-align: justify;
-    }
-    
+@media (min-width: 1200px) and (max-height: 576px) {
+  small {
+    font-size: 0.9rem;
+  }
 }
 
+@media (min-width: 1200px) and (min-height: 576px) {
+  #left {
+    height: 100vh;
+  }
+  #right {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1200px) and (min-height: 1200px) {
+  body,
+  button
+   {
+    font-size: 2rem !important;
+  }
+  input{
+    font-size: 2.2rem !important;
+    padding: 2rem !important;
+  }
+  #alerta{
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  i,
+  small {
+    font-size: 1.5rem;
+  }
+  #spanEmail{
+    font-size: 1.7rem;
+    font-style: bold;
+  }
 }
