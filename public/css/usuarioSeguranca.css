@@ -1,72 +1,89 @@
 #left {
-    background-color:rgba(192,192,192,0.2);
-    height:maximus;
-    width: 100%;
-    margin:0;
-    padding: 0;
-}
-#logo {
-    width: 40%;
-    margin: 1rem;
-}
-#pasta,#pessoa,#engrenagem,#desliga{
-    color: #C7CADD;
-    font-size: 2rem;
-    text-align: left;
-    margin-bottom: 6rem;
-}
-#menu{
-    margin-top: 8rem;
-    margin-left:2rem;
-    width: 100%;
-}
-i,span {
-    margin-right: 1rem;
+  background-color: rgba(192, 192, 192, 0.2);
+  height: maximus;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 #right{
-    margin: 1rem;
-    width: maximum;
+    margin: 0;
+    padding: 0;
+    height: maximus;
+    width: 100%;
 }
-p{
-    font-size: 1rem;
-    margin: 1rem;
-    text-align: justify;
+#logo {
+  width: 40%;
+  margin: 1rem;
 }
-
-@media only screen and (max-width:767.98px) {
-    span{
-        margin-right: 0;
-    }
-    #logoimg{
-        width: 20%;
-        height: 10%;
-    }
-    #left{
-        padding: 1rem;
-    }
-    p{
-        font-size: 0.8rem;
-        margin: 1rem;
-        text-align: justify;
-    }
-    
-@media only screen and (max-width:991.98px) {
-    span{
-        margin-right: 0;
-    }
-    #logoimg{
-        width: 15%;
-        height: 2%;
-    }
-    #left{
-        padding: 1rem;
-    }
-    p{
-        font-size: 0.8rem;
-        margin: 1rem;
-        text-align: justify;
-    }
-    
+#pasta,
+#pessoa,
+#engrenagem,
+#desliga {
+  color: #c7cadd;
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 6rem;
 }
 
+#menu {
+  margin-top: 8rem;
+  margin-left: 2rem;
+  width: 100%;
+}
+
+#menu > div > a,
+#menu > div > a:visited {
+  text-decoration: none;
+  color: #8da1b5;
+}
+
+.ative {
+  color: #007bff !important;
+}
+#menu div a:hover {
+  color: black;
+}
+#menu div i,
+#menu div span {
+  margin-right: 1rem;
+}
+#right {
+  margin: 1rem;
+  width: maximum;
+}
+
+@media only screen and (max-width: 767.98px) {
+    li a, li a:visited,li a:active{
+        text-decoration: none;
+        color: #8da1b5;
+    }
+    li a:active{
+        text-decoration: underline;
+    }
+    #menu div span {
+    margin-right: 0;
+  }
+  #logoimg {
+    width: 20%;
+    height: 10%;
+  }
+  #left {
+    padding: 1rem;
+  }
+
+  @media only screen and (max-width: 991.98px) {
+    #menu div span {
+      margin-right: 0;
+    }
+    #logoimg {
+      width: 15%;
+      height: 2%;
+    }
+    #left {
+      padding: 1rem;
+    }
+    #right{
+        margin: 1rem;
+    }
+  }
 }
