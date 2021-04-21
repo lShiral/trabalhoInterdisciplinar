@@ -20,7 +20,7 @@
         </script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
-</head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
 <link rel="stylesheet" href="/public/css/usuarioSeguranca.css">
 </head>
 
@@ -37,24 +37,24 @@
 
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ">
-                <li class="nav-item mx-auto">
+            <ul class="navbar-nav m-4">
+                <li class="nav-item">
                     <div id="resultado" class="nav-link">
                         <a href="./usuarioResultado.html"> <i class="far fa-folder" id="pasta"></i>
                             <span>Resultado</span> </a>
                     </div>
                 </li>
-                <li class="nav-item mx-auto">
+                <li class="nav-item">
                     <div id="quiz" class="nav-link">
                         <a href="./usuarioQuiz.html"><i class="far fa-user" id="pessoa"></i> <span>Meu quiz</span></a>
                     </div>
                 </li>
-                <li class="nav-item mx-auto">
+                <li class="nav-item">
                     <div id="seguranca" class="nav-link">
                         <a href="#"><i class="fas fa-cog ative" id="engrenagem"></i> <span>Segurança</span></a>
                     </div>
                 </li>
-                <li class="nav-item mx-auto">
+                <li class="nav-item">
                     <div id="sair" class="nav-link">
                         <a href="./index.html"> <i class="fas fa-power-off " id="desliga"></i> <span>Sair</span></a>
                     </div>
@@ -63,8 +63,8 @@
         </div>
     </nav>
 
-    <div id="main" class="row">
-        <div id="left" class="col-3 d-none d-md-block">
+    <div id="main" class="row container-fluid">
+        <div id="left" class=" d-none d-md-block col-3">
             <div id='logo' class="mx-auto row">
                 <img class="img-fluid rounded-circle" src="/public/images/banner.svg" alt="Logo usuário">
             </div>
@@ -85,98 +85,81 @@
             </div>
         </div>
 
-        <div id="right" class="col-md">
+        <div id="right" class="container-fluid col-md">
             <form action="" name="needs-validation" id="form1" class="mx-auto">
                 <h1 class="text-primary" class="form-row">Segurança</h1>
+                <div class="row mt-4 ml-2">
+                    
+                </div>
+                <div id="alerta" class="alert alert-primary alert-dismissible fade show " role="alert">
+                    <small class="text-justfy">Pode-se altera qualquer campo individualmente, sendo necessario os campos senha Atual, Nova senha e Repita senha caso deseje mudar sua senha.</small>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
                 <div class="form-row mt-4 mr-2">
-                    <div id="telefone" class="col">
+                    <div id="telefone" class="col-md">
                         <label id="txttel" for="inptel">Telefone </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
                             </div>
-                            <input type="text" id="inptel" class="form-control">
+                            <input type="text" id="inptel" class="form-control d-lg form-control-lg" maxlength="14">
                         </div>
                     </div>
-                    <div id="email" class="col">
+                    <div id="email" class="col-md">
                         <label id="txtemail" for="inpemail">Email </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text" id="spanEmail">@</span>
                             </div>
-                            <input type="email" id="inpemail" class="form-control">
+                            <input type="email" id="inpemail" class="form-control d-lg form-control-lg">
                         </div>
                     </div>
-                    <div id="celular" class="col">
+                    <div id="celular" class="col-md">
                         <label id="txtcel" for="inpcel">Celular </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
                             </div>
-                            <input type="text" id="inpcel" class="form-control">
+                            <input type="text" id="inpcel" class="form-control d-lg form-control-lg" maxlength="15">
                         </div>
                     </div>
                 </div>
                 <div class="form-row mt-4 mr-2">
-                    <div id="Senha" class="col">
+                    
+                    <div id="SenhaAtual" class="col-md">
                         <label id="txtsenhaAtual" for="senhaAtual">Senha atual </label>
                         <div class="input-group">
-                            <input type="text" id="senhaAtual" class="form-control">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input type="password" id="senhaAtual" class="form-control d-lg form-control-lg">
                         </div>
                     </div>
 
-                    <div id="Senha" class="col">
+                    <div id="Senha1" class="col-md">
                         <label id="txtsenhav1" for="senhav1">Nova Senha </label>
                         <div class="input-group">
-                            <input type="text" id="senhav1" class="form-control">
+                            <input type="password" id="senhav1" class="form-control d-lg form-control-lg">
                         </div>
                     </div>
-                    <div id="Senha" class="col">
+                    <div id="Senha2" class="col-md">
                         <label id="txtsenhav2" for="senhav2">Repita Senha </label>
                         <div class="input-group">
-                            <input type="text" id="senhav2" class="form-control">
+                            <input type="password" id="senhav2" class="form-control d-lg form-control-lg">
                         </div>
                         <small style="display:none;" id="diferente" class="text-danger">As senhas não batem</small>
                     </div>
                 </div>
-                <div class="form-row mt-4 mr-2">
-                    <button type="submit" class="btn btn-primary btn-lg mx-auto">Alterar</button>
+                <div id="btnAcpt" class="form-row mt-4 mr-2">
+                    <button type="submit" class="btn btn-primary btn-lg mx-auto d-xl btn-xl">Alterar</button>
                 </div>
             </form>
         </div>
     </div>
 </body>
+<script src="/public/scripts/usuarioSeguranca.js"></script>
 <script>
-    atual = document.getElementById("senhaAtual");
-    atual.onchange = verificaMudanca
-    nova = document.getElementById("senhav1");
-    repete = document.getElementById("senhav2");
-    nova.onchange = retira
-    repete.onchange = retira
-
-    function retira() {
-        if (nova.value != repete.value) {
-            document.getElementById("diferente").style = "display: inline-block"
-        } else {
-            document.getElementById("diferente").style = "display: none"
-        }
-    }
-
-    function verificaMudanca() {
-        if (atual.value) {
-            nova.required = true
-            repete.required = true
-
-        } else {
-            if (nova.value) {
-                nova.required = false
-            }
-            if (repete.value) {
-                repete.required = false
-            }
-
-        }
-    }
 </script>
-
 </html>
