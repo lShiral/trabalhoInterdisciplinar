@@ -2,66 +2,68 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-        </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-        </script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/v4-shims.css">
-    <script src="/public/scripts/index.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz LOL - Início</title>
 
-    <link rel="stylesheet" href="/public/css/index.css">
+    <!-- imports do bootstrap-->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/node_modules/jquery/dist/"></script>
+
+    <!--imports do fontawesome-->
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    </link>
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/v4-shims.css">
+    </link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+
+    <!--Import modificaçoes css-->
+    <link rel="stylesheet" href="/public/css/index.css" />
 </head>
 
 <body>
     <div id="main" class="container-fluid m-4">
-        <div id="acesso" class="p-4  bg-light float-right">
+        <div id="acesso" class="p-4 bg-light float-right">
             <!-- Endereçar form para verificação e dps para usuarioSeguranca-->
             <form action="./usuarioSeguranca.html" method="POST" class="needs-validation" novalidate>
                 <h1 class="text-primary">Acessar Portal</h1>
                 <div id="email" class="form-row mb-4">
-                    <label id="txtemail" for="inpemail"><i class="text-danger ">*</i> Email </label>
+                    <label id="txtemail" for="inpemail"><i class="text-danger">*</i> Email
+                    </label>
                     <div class="input-group mt-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i>@</i> </span>
                         </div>
                         <input type="email" id="inpemail" class="form-control form-control-lg"
-                            placeholder="seunome@email.com" required>
+                            placeholder="seunome@email.com" required />
                     </div>
                 </div>
                 <div id="senha" class="form-row mb-4">
-                    <label id="txtsenha" for="inpsenha"><i class="text-danger">*</i>Senha </label>
+                    <label id="txtsenha" for="inpsenha"><i class="text-danger">*</i>Senha
+                    </label>
                     <div class="input-group mt-3 mb-4">
                         <div class="input-group-prepend">
-
                             <span class="input-group-text"><i class="fas fa-lock"></i></span>
                         </div>
                         <input type="password" id="inpsenha" class="form-control form-control-lg"
-                            placeholder="Digite sua senha" required>
+                            placeholder="Digite sua senha" required />
                     </div>
                 </div>
                 <div class="form-row">
-                    <a class="col-lg text-center m-2 p-3 text-dark" href="">ESQUECI MINHA SENHA</a>
-                    <button type="submit" class="m-2 p-2 btn btn-primary col-lg btn-lg ">Entrar</button>
-                    <a id="lnksemcadastro" href="" class="text-center  pl-4 mt-3 text-dark col-md-12">Ainda não tenho
-                        cadastro</a>
+                    <a class="col-lg text-center m-2 p-3 text-dark" href="./esqueciSenha.html">ESQUECI MINHA SENHA</a>
+                    <button type="submit" class="m-2 p-2 btn btn-primary col-lg btn-lg">
+                        Entrar
+                    </button>
+                    <a id="lnksemcadastro" href="./Cadastre.html"
+                        class="text-center pl-4 mt-3 text-dark col-md-12">Ainda não tenho cadastro</a>
                 </div>
-
             </form>
         </div>
     </div>
-
 </body>
 
 </html>
