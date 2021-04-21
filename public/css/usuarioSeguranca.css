@@ -1,0 +1,72 @@
+#left {
+    background-color:rgba(192,192,192,0.2);
+    height:maximus;
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
+#logo {
+    width: 40%;
+    margin: 1rem;
+}
+#pasta,#pessoa,#engrenagem,#desliga{
+    color: #C7CADD;
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 6rem;
+}
+#menu{
+    margin-top: 8rem;
+    margin-left:2rem;
+    width: 100%;
+}
+i,span {
+    margin-right: 1rem;
+}
+#right{
+    margin: 1rem;
+    width: maximum;
+}
+p{
+    font-size: 1rem;
+    margin: 1rem;
+    text-align: justify;
+}
+
+@media only screen and (max-width:767.98px) {
+    span{
+        margin-right: 0;
+    }
+    #logoimg{
+        width: 20%;
+        height: 10%;
+    }
+    #left{
+        padding: 1rem;
+    }
+    p{
+        font-size: 0.8rem;
+        margin: 1rem;
+        text-align: justify;
+    }
+    
+@media only screen and (max-width:991.98px) {
+    span{
+        margin-right: 0;
+    }
+    #logoimg{
+        width: 15%;
+        height: 2%;
+    }
+    #left{
+        padding: 1rem;
+    }
+    p{
+        font-size: 0.8rem;
+        margin: 1rem;
+        text-align: justify;
+    }
+    
+}
+
+}
