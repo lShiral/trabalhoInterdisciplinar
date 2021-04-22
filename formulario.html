@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Exemplo</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/floating-labels.css">
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+        <div class="row justify-content-center p-4">
+            <div class="col-sm-5 align-self-center area-form">
+                <div class="row justify-content-center mb-4">
+                    <img src="public/images/banner.png" class="img-fluid rounded" alt="">
+                </div>
+
+<h3 class="text-center align-center display-4 mb-4">Exemplo de Formulário</h3>
+
+<form action="./respostas.php" method="POST">
+    <div class="form-label-group mb-3 text-center">
+        <input type="text" id="nome" class="form-control" placeholder="Insira seu nome completo." required autofocus>
+        <label for="nome">Qual o seu nome?</label>
+      </div>
+      <div class="form-label-group mt-2 text-center">
+        <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required autofocus>
+        <label for="email">Qual o seu e-mail?</label>
+      </div>
+<span class="small d-block text-center my-3">Quais dessas funções lhe parecem interessantes? Marque todas pelas quais se interessar.</span>
+<div class="form-check text-center form-switch my-1">
+    <input class="form-check-input" type="checkbox" value="" id="mago">
+    <label class="form-check-label" for="mago">
+      Mago
+    </label>
+  </div>
+  <div class="form-check text-center form-switch my-1">
+    <input class="form-check-input" type="checkbox" value="" id="lutador">
+    <label class="form-check-label" for="lutador">
+      Lutador
+    </label>
+  </div>
+  <div class="form-check text-center form-switch my-1">
+    <input class="form-check-input" type="checkbox" value="" id="atirador">
+    <label class="form-check-label" for="atirador">
+      Atirador
+    </label>
+  </div>
+  <div class="form-check text-center form-switch my-1">
+    <input class="form-check-input" type="checkbox" value="" id="assassino">
+    <label class="form-check-label" for="assassino">
+      Assassino
+    </label>
+  </div>
+  <div class="form-check text-center form-switch my-1">
+    <input class="form-check-input" type="checkbox" value="" id="tanque">
+    <label class="form-check-label" for="tanque">
+      Tanque
+    </label>
+  </div>
+  <div class="form-check text-center mb-4 form-switch my-1">
+    <input class="form-check-input" type="checkbox" value="" id="suporte">
+    <label class="form-check-label" for="suporte">
+      Suporte
+    </label>
+  </div>
+  <span class="small d-block text-center my-3">Qual o seu nível de experiência com jogos do gênero MOBA?</span>
+  <div class="form-check text-center my-1">
+    <input class="form-check-input" type="radio" name="experiencia" id="nunca" value="semExperiencia" checked>
+    <label class="form-check-label" for="nunca">
+        Mo-o quê? É de comer?
+    </label>
+  </div>
+  <div class="form-check text-center my-1">
+    <input class="form-check-input" type="radio" name="experiencia" id="casual" value="experienciaCasual">
+    <label class="form-check-label" for="casual">
+        Já joguei um pouco no passado
+    </label>
+  </div>
+  <div class="form-check text-center my-1">
+    <input class="form-check-input" type="radio" name="experiencia" id="experiente" value="viciadoQueNemAJessica">
+    <label class="form-check-label" for="experiente">
+        Costumo jogar sempre que posso.
+    </label>
+    </div>
+    <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="respostaDeCorno" value="respostaDesabilitada" disabled>
+        <label class="form-check-label" for="respostaDeCorno">
+        MOBA é coisa de vagabundo.
+        </label>
+  </div>
+  <div class="my-3 text-center">
+    <label class="lead mb-2" for="acrescimos">Comentários:</label>
+    <textarea class="form-control" rows="10" placeholder="Deixe seus comentários aqui." id="acrescimos"></textarea>
+  </div>
+<div class="input-group mt-2">
+    <input type="submit" class="form-control btn btn-info btn-block" value="Enviar">
+</div>
+
+</form>     
+            </div>
+        </div>
+
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/popper.js/dist/popper.js"></script>    
+</body>
+</html>
