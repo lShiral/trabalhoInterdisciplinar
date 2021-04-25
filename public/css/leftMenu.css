@@ -8,6 +8,14 @@
   width: 40%;
   margin: 1rem;
 }
+#buttonnav{
+  outline:none !important;
+}
+
+#buttonnav:focus,#buttonnav:active
+#buttonnav:focus-within{
+  border-color: #007bff!important;
+}
 #pasta,
 #pessoa,
 #engrenagem,
@@ -50,6 +58,13 @@
   }
   li a:active {
     text-decoration: underline;
+  }
+  li a:hover{
+    text-decoration: none;
+    color:gray;
+  }
+  li a i:hover{
+    color: gray !important;
   }
   #menu div span {
     margin-right: 0;
