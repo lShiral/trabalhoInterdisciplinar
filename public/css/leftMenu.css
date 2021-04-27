@@ -1,17 +1,14 @@
+
 #left {
   background-color: rgba(192, 192, 192, 0.2);
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 #logo {
-  width: 40%;
+  width: 100%;
   margin: 1rem;
 }
 #buttonnav{
   outline:none !important;
 }
-
 #buttonnav:focus,#buttonnav:active
 #buttonnav:focus-within{
   border-color: #007bff!important;
@@ -24,6 +21,11 @@
   font-size: 2rem;
   text-align: left;
   margin-bottom: 6rem;
+}
+
+#email_Usu,#usuario{
+  color: black;
+  font-size: 1.5rem;
 }
 
 #menu {
@@ -69,10 +71,6 @@
   #menu div span {
     margin-right: 0;
   }
-  #logoimg {
-    width: 15%;
-    height: 10%;
-  }
   #left {
     box-sizing: border-box;
     padding-top: 1rem;
@@ -81,6 +79,10 @@
   #right {
     height: maximus;
     margin: 1rem;
+  }
+  #logoimg {
+    width: 20%;
+    height: 2%;
   }
   #telfone,
   #email,
@@ -93,15 +95,31 @@
 }
 
 @media only screen and (max-width: 991.98px) and (min-height: 576px) {
-  
+  #logoimg {
+    width: 20%;
+    height: 2%;
+  }
 }
 @media (max-width: 991.98px) and (max-height: 576px) {
-  
+  #logo {
+    width: 60%;
+    margin: 1rem;
+  }
 }
 
 @media (min-width: 991.98px) and (min-height: 576px) {
-  
+  #logo {
+    width: 60%!important;
+    margin: 1rem;
+  }
+}
+@media (max-width: 1200px) and (max-height: 576px){
+  #logo {
+    width: 60%;
+  }
 }
 @media (min-width: 1200px) and (min-height: 576px) {
- 
+  #logo {
+    width: 60%;
+  }
 }

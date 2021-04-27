@@ -1,105 +1,105 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulário Exemplo</title>
-  <!-- imports do bootstrap-->
-  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
-  <script src="/node_modules/popper.js/dist/popper.min.js"></script>
-  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-  <link rel="stylesheet" href="/public/css/quiz.css" />
-</head>
-
-<body>
-  <div class="container-fluid row p-4">
-    <div class="container-fluid">
-
-      <h3 class="text-center align-center display-4 ">
-        Exemplo de Formulário
-      </h3>
-
-      <form action="" class="was-validated" method="POST">
-        <div class="form-group  text-center">
-          <input required type="text" id="nome" class="form-control" placeholder="Insira seu nome completo." required
-            autofocus />
-          <label for="nome">Qual o seu nome?</label>
-        </div>
-        <div class="form-group text-center">
-          <input required type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required autofocus />
-          <label for="email">Qual o seu e-mail?</label>
-        </div>
-        <div class="form-group row m-0 p-0">
-          <span class="small d-block text-center col-12 text-center mt-3 mb-3">Quais dessas funções lhe parecem interessantes? Marque todas pelas
-            quais se interessar.</span>
-          <div class="custom-control custom-switch text-center  col-12 mb-2">
-            <input required class="custom-control-input" type="checkbox" value="" id="mago"/>
-            <label class="custom-control-label" for="mago"> Mago </label>
-          </div>
-          <div class="custom-control custom-switch  text-center  col-12 mb-2">
-            <input required class="custom-control-input" type="checkbox" value="" id="lutador" />
-            <label class="custom-control-label" for="lutador"> Lutador </label>
-          </div>
-          <div class="custom-control custom-switch text-center  col-12 mb-2">
-            <input required class="custom-control-input" type="checkbox" value="" id="atirador" />
-            <label class="custom-control-label" for="atirador"> Atirador </label>
-          </div>
-          <div class="custom-control custom-switch text-center  col-12 mb-2">
-            <input required class="custom-control-input" type="checkbox" value="" id="assassino" />
-            <label class="custom-control-label" for="assassino"> Assassino </label>
-          </div>
-          <div class="custom-control custom-switch text-center  col-12 mb-2">
-            <input required class="custom-control-input" type="checkbox" value="" id="tanque" />
-            <label class="custom-control-label" for="tanque"> Tanque </label>
-          </div>
-          <div class="custom-control custom-switch text-center  col-12 mb-2">
-            <input required class="custom-control-input" type="checkbox" value="" id="suporte" />
-            <label class="custom-control-label" for="suporte"> Suporte </label>
-          </div>
-        </div>
-        <div class="form-group">
-          <span class="small d-block text-center mt-3 mb-3">Qual o seu nível de experiência com jogos do gênero MOBA?</span>
-          <div class="custom-control custom-radio text-center mb-2">
-            <input required class="custom-control-input" type="radio" name="experiencia" id="nunca" value="semExperiencia" />
-            <label class="custom-control-label" for="nunca">
-              Mo-o quê? É de comer?
-            </label>
-          </div>
-          <div class="custom-control custom-radio text-center mb-2">
-            <input required class="custom-control-input" type="radio" name="experiencia" id="casual" value="experienciaCasual" />
-            <label class="custom-control-label" for="casual">
-              Já joguei um pouco no passado
-            </label>
-          </div>
-          <div class="custom-control custom-radio text-center mb-2">
-            <input required class="custom-control-input" type="radio" name="experiencia" id="experiente"
-              value="viciadoQueNemAJessica" />
-            <label class="custom-control-label" for="experiente">
-              Costumo jogar sempre que posso.
-            </label>
-          </div>
-          <div class="custom-control custom-radio text-center mb-2">
-            <input required class="custom-control-input" type="radio" name="experiencia" id="respostaDeCorno"
-              value="respostaDesabilitada" disabled />
-            <label class="custom-control-label" for="respostaDeCorno">
-              MOBA é coisa de vagabundo.
-            </label>
-          </div>
-        </div>
-        
-        <div class="form-group text-center mb-3">
-          <label class="small mb-2" for="acrescimos">Comentários:</label>
-          <textarea class="form-control" rows="10" placeholder="Deixe seus comentários aqui."
-            id="acrescimos"></textarea>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-        </div>
-      </form>
+<div class="row justify-content-center area-form my-2">
+  <div class="align-self-center ">
+    <div class="row justify-content-center">
+      <img id="formImage" src="/public/images/banner.png" class="img-fluid rounded bg-dark bg-gradient" alt="">
     </div>
+
+    <h3 class="text-center align-center display-4 mt-4 mb-4">Exemplo de Formulário</h3>
+
+    <div class="form-floating mb-3 text-center">
+      <input type="text" id="nome" class="form-control" placeholder="Insira seu nome completo." required>
+      <label for="nome" class="form-label">Qual o seu nome?</label>
+      <div class="invalid-feedback">
+        Digite seu nome
+      </div>
+    </div>
+    <div class="form-floating mb-3 mt-2 text-center">
+      <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
+      <label for="email" class="form-label">Qual o seu e-mail?</label>
+      <div class="invalid-feedback">
+        Digite o email, nessa formatação: usuario@email.com
+      </div>
+    </div>
+    <div class="form-group">
+      <span class="small d-block text-center my-3">Quais dessas funções lhe parecem interessantes? Marque todas pelas
+        quais se interessar.</span>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="mago">
+        <label class="form-check-label" for="mago">
+          Mago
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="lutador">
+        <label class="form-check-label" for="lutador">
+          Lutador
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="atirador">
+        <label class="form-check-label" for="atirador">
+          Atirador
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="assassino">
+        <label class="form-check-label" for="assassino">
+          Assassino
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="tanque">
+        <label class="form-check-label" for="tanque">
+          Tanque
+        </label>
+      </div>
+      <div class="form-check text-center mb-4 form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="suporte">
+        <label class="form-check-label" for="suporte">
+          Suporte
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="small d-block text-center my-3">Qual o seu nível de experiência com jogos do gênero MOBA?</span>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="nunca" value="semExperiencia" required>
+        <label class="form-check-label" for="nunca">
+          Mo-o quê? É de comer?
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="casual" value="experienciaCasual">
+        <label class="form-check-label" for="casual">
+          Já joguei um pouco no passado
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="experiente" value="viciadoQueNemAJessica">
+        <label class="form-check-label" for="experiente">
+          Costumo jogar sempre que posso.
+        </label>
+        <div class="invalid-feedback">
+          Assinale uma alternativa
+        </div>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="respostaDeCorno"
+          value="respostaDesabilitada" disabled>
+        <label class="form-check-label" for="respostaDeCorno">
+          MOBA é coisa de vagabundo.
+        </label>
+        
+      </div>
+      
+    </div>
+
+    <div class="my-3 text-center">
+      <label class="lead mb-2" for="acrescimos">Comentários:</label>
+      <textarea class="form-control" rows="10" placeholder="Deixe seus comentários aqui." id="acrescimos"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block w-100">Enviar</button>
   </div>
-</body>
-</html>
+</div>
+</div>

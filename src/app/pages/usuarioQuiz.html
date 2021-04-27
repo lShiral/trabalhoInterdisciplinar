@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User - Segurança</title>
+    <title>User - Meu Quiz</title>
 
     <!-- imports do bootstrap-->
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
     <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="/node_modules/popper.js/dist/popper.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <!--Imports do fontawesome-->
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
     </link>
     <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/v4-shims.css">
     </link>
-
     <script src="/public/scripts/usuarioQuiz.js"></script>
 
     <!--Import modificaçoes css-->
@@ -26,19 +25,20 @@
     <link rel="stylesheet" href="/public/css/leftMenu.css">
 </head>
 
-<body>
-    <nav id='navebar' class="d-flex d-md-none navbar navbar-expand-md bg-light navbar-light">
+<body class="">
+    <nav id='navebar' class="d-flex d-md-none navbar navbar-expand-md navbar-light bg-light">
         <!-- Brand -->
-        <img id="logoimg" class="img-fluid rounded-circle" src="/public/images/banner.svg" alt="Logo usuário">
+        <img id="logoimg" class="img-fluid rounded-circle navbar-brand ms-2" src="/public/images/banner.svg"
+            alt="Logo usuário">
 
         <!-- Toggler/collapsibe Button -->
-        <button id="buttonnav" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#collapsibleNavbar">
+        <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span id="buttonnav" class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav m-4">
                 <li class="nav-item">
                     <div id="resultado" class="nav-link">
@@ -48,12 +48,13 @@
                 </li>
                 <li class="nav-item">
                     <div id="quiz" class="nav-link">
-                        <a href="#"><i class="far fa-user" id="pessoa"></i> <span>Meu quiz</span></a>
+                        <a href="#"><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <div id="seguranca" class="nav-link">
-                        <a href="./usuarioSeguranca.html"><i class="fas fa-cog ative" id="engrenagem"></i> <span>Segurança</span></a>
+                        <a href="./usuarioResultado.html"><i class="fas fa-cog" id="engrenagem"></i>
+                            <span>Segurança</span></a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -65,46 +66,57 @@
         </div>
     </nav>
 
-    <div id="main" class="row container-fluid">
-        <div id="left" class=" d-none d-md-block col-md-3">
-            <div id='logo' class="mx-auto row">
-                <img class="img-fluid rounded-circle" src="/public/images/banner.svg" alt="Logo usuário">
+    <div id="main" class="container-fluid">
+        <div class="row">
+            <div id="left" class="row d-none d-md-block col-md-3  p-0">
+                <div id='logo' class="mx-auto row p-0">
+                    <img class="img-fluid rounded-circle" src="/public/images/banner.svg" alt="Logo usuário">
+                    <div class="col-12 text-center mt-4">
+                        <span id="email_Usu" class="">Email@usuario</span>
+                    </div>
+                    <div class="col-12 text-center mt-4">
+                        <span id="usuario" class="">Usuario</span>
+                    </div>
+                </div>
+                <div id="menu" class="row">
+                    <div id="resultado" class="col-12">
+                        <a href="./usuarioResultado.html"> <i class="far fa-folder" id="pasta"></i>
+                            <span>Resultado</span>
+                        </a>
+                    </div>
+                    <div id="quiz" class="col-12">
+                        <a href="#"><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
+                    </div>
+                    <div id="seguranca" class="col-12">
+                        <a href="./usuarioSeguranca.html"><i class="fas fa-cog" id="engrenagem"></i>
+                            <span>Segurança</span></a>
+                    </div>
+                    <div id="sair" class="col-12">
+                        <a href="./index.html"> <i class="fas fa-power-off" id="desliga"></i> <span>Sair</span></a>
+                    </div>
+                </div>
             </div>
-            <div id="menu" class="row">
-                <div id="resultado" class="col-12">
-                    <a href="./usuarioResultado.html"> <i class="far fa-folder" id="pasta"></i> <span>Resultado</span>
-                    </a>
-                </div>
-                <div id="quiz" class="col-12">
-                    <a href="#"><i class="far fa-user" id="pessoa"></i> <span>Meu quiz</span></a>
-                </div>
-                <div id="seguranca" class="col-12">
-                    <a href="./usuarioSeguranca.html"><i class="fas fa-cog ative" id="engrenagem"></i> <span>Segurança</span></a>
-                </div>
-                <div id="sair" class="col-12">
-                    <a href="./index.html"> <i class="fas fa-power-off" id="desliga"></i> <span>Sair</span></a>
-                </div>
-            </div>
-        </div>
 
-        <div id="right" class="container-fluid col-md">
-            <div class="row">
-               <h1 class="mx-auto row text-primary">Quiz</h1>
-            </div>
-            <div class="row mt-4 d-none">
-                <button type="button" class="btn btn-primary mx-auto">Refazer Quiz</button>
-            </div>
-            <div class="row ml-3 p-0">
-                <div id="quiz" style="border: 1px solid black" class="mx-auto" w3-include-html="./formulario.html"></div>
+            <div id="right" class="col-sm-12 col-md m-0 p-3 m-md-5 p-md-0">
+                <div class="row text-center">
+                    <h1 class="text-primary">Quiz</h1>
+                </div>
+                <div class="row mt-4 d-none">
+                    <button type="button" class="btn btn-primary mx-auto">Refazer Quiz</button>
+                </div>
+                <div class="row m-0 p-0">
+                    <div class="container-fluid" >
+                        <form action="#" class="row" class="needs-validation" id="quiz" method="POST" novalidate w3-include-html="./formulario.html"></form>
+                    </div>
+                    
+                </div>
             </div>
         </div>
     </div>
 </body>
+
 <script>
     includeHTML();
 </script>
-
-<script>
-</script>
-
+<script src="/public/scripts/form.js"></script>
 </html>

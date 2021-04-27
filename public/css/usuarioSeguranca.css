@@ -10,16 +10,15 @@
   height: maximus;
   width: 100%;
 }
+#menu{
+  padding:0;
+}
 
 
 @media only screen and (max-width: 991.98px) and (min-height: 576px) {
   #menu div span {
     margin-right: 0;
     margin-top: 0;
-  }
-  #logoimg {
-    width: 15%;
-    height: 2%;
   }
   #left {
     padding-top: 1rem;
@@ -52,10 +51,6 @@
   #left {
     padding-top: 1rem;
     height: 100vh;
-  }
-  #logo {
-    width: 60%;
-    margin: 1rem;
   }
   #right {
     margin: 1rem;
