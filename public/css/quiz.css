@@ -1,0 +1,12 @@
+.area-form {
+    height: 100%;
+}
+body, html{
+    width: 100%;
+    height: 100%;
+}
+@media  (min-width: 1200px){
+    textarea{
+        font-size: 2rem;
+}
+}

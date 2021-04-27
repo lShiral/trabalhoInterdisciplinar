@@ -13,11 +13,35 @@
 
 
 @media only screen and (max-width: 991.98px) and (min-height: 576px) {
+  #menu div span {
+    margin-right: 0;
+    margin-top: 0;
+  }
+  #logoimg {
+    width: 15%;
+    height: 2%;
+  }
+  #left {
+    padding-top: 1rem;
+    height: 100vh;
+  }
+  #menu {
+    padding: 0;
+    margin-left: 0;
+  }
+  #right {
+    margin: 1rem;
+    height: 100vh;
+  }
   input {
     font-size: 1rem !important;
   }
 }
 @media (max-width: 991.98px) and (max-height: 576px) {
+  #left {
+    padding-top: 1rem;
+    height: maximus;
+  }
   #right {
     margin: 1rem;
     height: maximus;
@@ -25,6 +49,14 @@
 }
 
 @media (min-width: 991.98px) and (min-height: 576px) {
+  #left {
+    padding-top: 1rem;
+    height: 100vh;
+  }
+  #logo {
+    width: 60%;
+    margin: 1rem;
+  }
   #right {
     margin: 1rem;
     height: 100vh;
@@ -45,6 +77,9 @@
 
 @media (min-width: 1200px) and (min-height: 576px) {
   #right {
+    height: 100vh;
+  }
+  #left {
     height: 100vh;
   }
 }
