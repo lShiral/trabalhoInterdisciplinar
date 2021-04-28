@@ -9,7 +9,7 @@
 #buttonnav{
   outline:none !important;
 }
-#buttonnav:focus,#buttonnav:active
+#buttonnav:focus,
 #buttonnav:focus-within{
   border-color: #007bff!important;
 }
