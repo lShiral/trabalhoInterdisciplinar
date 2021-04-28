@@ -99,11 +99,11 @@
                     </div>
                 </div>
 
-                <div id="right" class="col-sm-12 col-md m-0 p-3 m-lg-5 p-lg-0">
-                    <form action="" name="needs-validation" id="form1" class="">
-                        <div class="row p-4">
-                            <h1 class="text-primary" class="form-group">Segurança</h1>
-                            <div id="alerta" class="m-0 alert alert-primary alert-dismissible fade show " role="alert">
+                <div id="right" class="col-sm-12 col-md m-0 p-lg-0">
+                    <form action="" name="" id="form1"class="mx-4 row mt-4">
+                        <div class="row">
+                            <h1 class="text-primary text-center text-lg-start" class="form-group">Segurança</h1>
+                            <div id="alerta" class="m-0 alert alert-primary alert-dismissible fade show mt-4" role="alert">
                                 <small class="text-justfy">Pode-se altera qualquer campo individualmente, sendo
                                     necessario
                                     os campos
@@ -143,6 +143,21 @@
                                 </div>
                             </div>
                             <div class="row mt-4 mr-2">
+                                <div id="usuario" class="form-group col-md">
+                                    <label id="txtusuario" for="inpusuario">Nome de Usuario</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="far fa-user "></i></span>
+                                        <input type="text" id="inpusuario" class="form-control d-lg form-control-lg"
+                                            maxlength="14">
+                                    </div>
+                                </div>
+                                <div id="imagemUsuario" class="form-group col-md mt-3 mt-md-0 ">
+                                    <label for="inpimagem" id="txtimagem" class="form-label">Imagem de Usuário</label>
+                                    <input class="form-control" type="file" id="inpimagem">
+                                </div>
+                            </div>
+
+                            <div class="row mt-4 mr-2">
                                 <div id="SenhaAtual" class="form-group col-md mb-2">
                                     <label id="txtsenhaAtual" for="senhaAtual">Senha atual </label>
                                     <div class="input-group">
@@ -166,13 +181,14 @@
                                         batem</small>
                                 </div>
                             </div>
-                            <div id="btnAcpt" class="row m-0 mt-4">
+                            <div id="btnAcpt" class="row m-0 mt-4 mb-4">
                                 <button type="submit" class="btn btn-primary btn-lg">Alterar</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
 </body>
 <script src="/public/scripts/usuarioSeguranca.js"></script>
 <script>

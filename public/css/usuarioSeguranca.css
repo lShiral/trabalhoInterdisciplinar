@@ -92,12 +92,8 @@
     font-size: 2rem !important;
   }
   input {
-    font-size: 2.2rem !important;
-    padding: 2rem !important;
-  }
-  #alerta {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    font-size: 1.9rem !important;
+    padding: 1rem !important;
   }
   i,
   small {
