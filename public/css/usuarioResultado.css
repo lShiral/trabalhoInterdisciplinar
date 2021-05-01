@@ -1,18 +1,9 @@
-.container-fluid {
-  height: 100vh;
-}
 
-*:focus{
-  outline: 1px solid #007bff;
-}
 #right {
   margin: 0;
   padding: 0;
   margin-top: 1rem;
   margin-left: 1rem;
-  width: 100%;
-  height: maximus;
-  width: 100%;
 }
 
 .collapsible {
@@ -46,7 +37,7 @@
   content: "\2212";
 }
 
-.content {
+.content, .content2{
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
@@ -54,30 +45,112 @@
   background-color:#fffafa ;
 }
 
-.content img {
-  max-width: 250px;
-  max-height: 185px;
-  width: auto;
-  height: auto;
-}
 
-.content p {
+.content p,.content2 p {
   display: flex;
   margin-top: 20px;
 }
-
-.content .imagem-e-descricao {
-  display: flex;
+.content img{
+  margin-bottom: 1rem;
 }
 
-.content .descricao {
+.content .descricao,.content2 .descricao {
   margin-left: 20px;
   text-align: justify;
 }
 
-.content .imagem-rotas img {
-  max-width: 900px !important;
-  max-height: 900px !important;
-  width: auto;
-  height: auto;
+@media only screen and (max-width: 991.98px) and (min-height: 576px){
+  #menu div span {
+    margin-right: 0;
+    margin-top: 0;
+  }
+  #left {
+    padding-top: 1rem;
+  }
+  #menu {
+    padding: 0;
+    margin-left: 0;
+  }
+  #left{
+    min-height: 100vh;
+    max-height: 100%;
+  }
+  .content .descricao, .content2 .descricao{
+    margin-left:0;
+  }
+  .content img {
+    margin-bottom: initial!important;
+    max-width: 350px!important;
+    max-height: 180px!important;
+    width: auto!important;
+    height: auto!important;
+  }
+  #usuario,#email_Usu{
+    font-size:1rem!important;
+  }
+  
+}
+/*ipad pro - laptop m*/
+@media (min-width: 991.98px) and (min-height: 576px) {
+  #left{
+    min-height: 100vh;
+    max-height: 100%;
+  }
+  .content p,.content2 p, span,button.collapsible {
+    font-size: 1.4rem;
+  }
+  
+  .content img {
+    margin-bottom: initial!important;
+    max-width: 250px!important;
+    max-height: 385px!important;
+    width: auto!important;
+    height: auto!important;
+  }
+  
+}
+
+@media (min-width: 1200px) { 
+  .content .imagem-e-descricao {
+    display: flex!important;
+  }
+  .content img {
+    margin-bottom: initial!important;
+    max-width: 250px!important;
+    max-height: 185px!important;
+    width: auto!important;
+    height: auto!important;
+  }
+ }
+@media (min-width: 1200px) and (max-height: 576px) {
+}
+@media (min-width: 1200px) and (min-height: 576px) {
+  
+}
+@media (min-width: 1200px) and (min-height: 1200px) {
+  .content img {
+    margin-bottom: initial!important;
+    max-width: 550px!important;
+    max-height: 385px!important;
+    width: auto!important;
+    height: auto!important;
+  }
+  .content{
+    margin-bottom: 4rem!important;
+  }
+  .content p,.content2 p, span {
+    font-size: 2.4rem;
+  }
+  strong{
+    font-size: 3rem;
+  }
+  button.collapsible{
+    font-size: 2.5rem;
+  }
+   #usuario,#email_Usu{
+    font-size: 3rem!important;
+  }
+  #menu span,#menu i{
+    font-size: 4rem!important;
+  }
 }
