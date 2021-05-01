@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz LOL - Início</title>
+
+    <!-- imports do bootstrap-->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Imports do fontawesome-->
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    </link>
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/v4-shims.css">
+    </link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+
+    <!--Import modificaçoes css-->
+    <link rel="stylesheet" href="/public/css/index.css" />
+</head>
+
+<body class="container-fluid">
+    <div id="main" class="">
+        <div id="acesso" class="w-sm-100 p-4 bg-light d-lg-block float-lg-end mb-5 mb-lg-0">
+            <!-- Endereçar form para verificação e dps para usuarioSeguranca-->
+            <form action="./usuarioSeguranca.html" method="POST" class="needs-validation" novalidate>
+                <h1 class="text-primary m-4 text-center text-lg-start">Cadastre-se</h1>
+                <div id="email" class="form-group mb-4">
+                    <label id="txtemail" for="inpemail"><i class="text-danger">*</i> Email
+                    </label>
+                    <div class="input-group mt-3">
+                        <span class="input-group-text"> <i>@</i> </span>
+                        <input type="email" id="inpemail" class="form-control form-control-lg"
+                            placeholder="seunome@email.com" required />
+                    </div>
+                </div>
+                <div id="senha" class="form-group mb-4">
+                    <label id="txtsenha" for="inpsenha"><i class="text-danger">*</i>Senha
+                    </label>
+                    <div class="input-group mt-3 mb-4">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="inpsenha" class="form-control form-control-lg"
+                            placeholder="Digite sua senha" required />
+                    </div>
+                </div>
+                <div id="senha" class="form-group mb-4">
+                  <label id="txtsenha" for="inpsenha"><i class="text-danger">*</i>Confirmar Senha
+                  </label>
+                  <div class="input-group mt-3 mb-4">
+                      <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                      <input type="password" id="inpsenha" class="form-control form-control-lg"
+                          placeholder="Repita sua senha" required />
+                  </div>
+              </div>
+                <div class="form-group">
+                  <div class="row">
+                      <div class="col-md text-center p-3">
+                          <a class="text-dark fw-bold text-uppercase" href="./index.html">Voltar</a>
+                      </div>
+                      <div class="col-md">
+                          <button type="submit" class=" w-100 btn btn-primary btn-lg">
+                              Cadastrar
+                          </button>
+                      </div>
+                      
+                  </div>
+              </div>
+            </form>
+        </div>
+
+    </div>
+</body>
+<script src="/public/scripts/form.js"></script>
+
+</html>

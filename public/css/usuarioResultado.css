@@ -1,0 +1,83 @@
+.container-fluid {
+  height: 100vh;
+}
+
+*:focus{
+  outline: 1px solid #007bff;
+}
+#right {
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  width: 100%;
+  height: maximus;
+  width: 100%;
+}
+
+.collapsible {
+  margin-top: 10px;
+  margin-bottom: 16px;
+  background-color: #c0c0c0;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.active, .collapsible:hover {
+  background-color: #007bff; 
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: black;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color:#fffafa ;
+}
+
+.content img {
+  max-width: 250px;
+  max-height: 185px;
+  width: auto;
+  height: auto;
+}
+
+.content p {
+  display: flex;
+  margin-top: 20px;
+}
+
+.content .imagem-e-descricao {
+  display: flex;
+}
+
+.content .descricao {
+  margin-left: 20px;
+  text-align: justify;
+}
+
+.content .imagem-rotas img {
+  max-width: 900px !important;
+  max-height: 900px !important;
+  width: auto;
+  height: auto;
+}
