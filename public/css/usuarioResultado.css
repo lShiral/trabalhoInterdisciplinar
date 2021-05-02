@@ -59,12 +59,21 @@
   text-align: justify;
 }
 
+/*dispositivos tipo telefones com telas grandes na orientação horizontal*/
+@media (min-width: 768px) and (max-height: 576px) {
+  span#usuario, span#email_Usu{
+    font-size: 1rem !important;
+  }
+}
+
 @media only screen and (max-width: 991.98px) and (min-height: 576px){
   #menu div span {
     margin-right: 0;
     margin-top: 0;
   }
   #left {
+    padding: 0;
+    margin:0;
     padding-top: 1rem;
   }
   #menu {
@@ -86,7 +95,10 @@
     height: auto!important;
   }
   #usuario,#email_Usu{
-    font-size:1rem!important;
+    font-size:1.4rem!important;
+  }
+  #menu span{
+    font-size:1.1rem!important;
   }
   
 }
