@@ -1,0 +1,14 @@
+mudar na linha 8 do arquivo db.js
+
+vai estar assim:
+const connection = await mysql.createConnection("mysql://root:Matheus&Marcos1@localhost:3306/LOLHelper");
+
+vc terá q mudar para dar certo no seu seguindo a instrição:
+
+const connection = await mysql.createConnection("mysql://(nomedoUsuario):(senha)@localhost:3306/LOLHelper");
+
+ex: meu usuario é Matheus e minha senha 1234
+
+const connection = await mysql.createConnection("mysql://Matheus:1234@localhost:3306/LOLHelper");
+
+caso a porta do seu mysql nao for a 3306 vc terá q modificar tbm, mas geralmente essa é a padrao
