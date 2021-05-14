@@ -20,6 +20,17 @@ async function selectUserLogin(dado){
     return rows
 }
 
+/* seleciona campo para ver se usuario ja fez o quiz */
+/*verifica se email existe para a troca de senha */
+async function selectEmail(dado){
+    const conn = await connect();
+    const sql = 'SELECT email FROM Usuario WHERE email =?;';
+    const value = [dado.email];
+    const [rows] = await conn.query(sql,value);
+    return rows
+}
+
+
 /*verifica se email existe para a troca de senha */
 async function selectEmail(dado){
     const conn = await connect();
@@ -32,8 +43,26 @@ async function selectEmail(dado){
 /*Seleciona tudo para verificar se alterou na hora de dar o update*/
 async function selectUserUpdate(dado){
     const conn = await connect();
-    const sql = 'SELECT * FROM Usuario WHERE id = ?;';
+    const sql = 'SELECT * FROM Usuario WHERE id =?;';
     const value = [dado.id];
+    const [rows] = await conn.query(sql,value);
+    return rows
+}
+
+/* Selciona rota e funcao*/
+async function selectRota(dado){
+    const conn = await connect();
+    const sql = 'SELECT rota, funcao FROM Jogabilidade WHERE idJog =?;';
+    const value = [dado.idJog];
+    const [rows] = await conn.query(sql,value);
+    return rows
+}
+
+/*Seleciona campeao,descricao e imagem(caso tenha essa ultima) */
+async function selectCampeao(dado){
+    const conn = await connect();
+    const sql = 'SELECT nomeCampeao, idcampeao, descricao,imgCampeao FROM Campeoes WHERE id_jog =?;';
+    const value = [dado.id_jog];
     const [rows] = await conn.query(sql,value);
     return rows
 }
@@ -46,7 +75,7 @@ async function  insertUser(dados){
     return await conn.query(sql,values);
 }
 
-/*Update usuario quando ele muda lá no usuario quiz*/
+/*Update usuario quando ele muda lá no usuario seguranca*/
 async function updateUser(dados){
     const conn = await connect();
     const sql = 'UPDATE Usuario SET email=?, nomeUsuario=?, senha=?, imagem=? WHERE id=?';
@@ -57,9 +86,17 @@ async function updateUser(dados){
 /*Insere na 1 vez q faz o quiz */
 async function insertQuiz(dados){
     const conn = await connect();
-    const sql = 'INSERT INTO Quiz (respostas,idUsuario) VALUES (?,?);';
+    const sql = 'INSERT INTO Quiz (respostas,idUsuario) VALUES (?,?,?);';
     const values = [dados.resposta,dados.idUsuario]
     return await conn.query(sql,values);
+}
+
+/*Update usuario quando ele faz o quiz*/
+async function updateUserQuiz(dados){
+    const conn = await connect();
+    const sql = 'UPDATE Usuario SET fezQuiz = True WHERE id=?';
+    const values = [dados.id];
+    return await conn.query(sql, values);
 }
 
 /*Insere na 1 vez q faz o quiz */
@@ -78,14 +115,6 @@ async function insertCampeoes(dados){
     return await conn.query(sql,values);
 }
 
-/*Update usuario quando ele faz o quiz*/
-async function updateUserQuiz(dados){
-    const conn = await connect();
-    const sql = 'UPDATE Usuario SET fezQuiz = True WHERE id=?';
-    const values = [dados.id];
-    return await conn.query(sql, values);
-}
-
 /*Update quando refaz o quiz*/
 async function updateQuiz(dados){
     const conn = await connect();
@@ -97,8 +126,8 @@ async function updateQuiz(dados){
 /*Update quando refaz o quiz*/
 async function updateCampeoes(dados){
     const conn = await connect();
-    const sql = 'UPDATE Campeoes SET nomeCampeao =?, idcampeao=?, descricao =? WHERE id_jog=?';
-    const values = [dados.nomeCampeao,dados.idcampeao,dados.descricao,dados.id_jog]
+    const sql = 'UPDATE Campeoes SET nomeCampeao =?, idcampeao=?, descricao =? imgCampeao=? WHERE id_jog=?';
+    const values = [dados.nomeCampeao,dados.idcampeao,dados.descricao,dados.imagem,dados.id_jog]
     return await conn.query(sql, values);
 }
 
@@ -110,4 +139,4 @@ async function updateJogabilidade(dados){
     return await conn.query(sql, values);
 }
 
-module.exports = {selectUserLogin,selectUserUpdate,insertUser,updateUser,insertQuiz,insertJogabilidade,insertCampeoes,updateUserQuiz,updateQuiz,updateCampeoes,updateJogabilidade}
+module.exports = {selectUserLogin,selectUserUpdate,insertUser,updateUser,insertQuiz,insertJogabilidade,insertCampeoes,updateUserQuiz,updateQuiz,updateCampeoes,updateJogabilidade,selectEmail,selectRota,selectCampeao}

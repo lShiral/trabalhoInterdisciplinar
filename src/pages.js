@@ -79,7 +79,11 @@ module.exports = {
                 imagem: "/public/images/Alistar.jpg"
             }
         ]
-            res.render("usuarioResultado", {info,dados})
+        let rota = {
+            funcao: "Dupla",
+            descricaoFuncao:"Lá você atuará como suporte. Quando você decide por jogar de suporte, precisa compreender que ele está no jogo com o intuito de ajudar o Atirador a adquirir seus recursos, conceder visão para o time e realizar a proteção de seus parceiros. Além disso, o suporte, na Fase de Rotas, é capaz de se movimentar pelo mapa para, além de garantir a visão, auxiliar seus parceiros de time com o que estiver ao seu alcance."
+        }
+            res.render("usuarioResultado", {info,dados,rota})
         } 
     },
 
