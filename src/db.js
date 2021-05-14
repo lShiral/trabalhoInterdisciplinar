@@ -20,6 +20,15 @@ async function selectUserLogin(dado){
     return rows
 }
 
+/*verifica se email existe para a troca de senha */
+async function selectEmail(dado){
+    const conn = await connect();
+    const sql = 'SELECT email FROM Usuario WHERE email =?;';
+    const value = [dado.email];
+    const [rows] = await conn.query(sql,value);
+    return rows
+}
+
 /*Seleciona tudo para verificar se alterou na hora de dar o update*/
 async function selectUserUpdate(dado){
     const conn = await connect();
@@ -64,8 +73,8 @@ async function insertJogabilidade(dados){
 /*Insere na 1 vez q faz o quiz */
 async function insertCampeoes(dados){
     const conn = await connect();
-    const sql = 'INSERT INTO Campeoes (id_jog,nomeCampeao,idcampeao) VALUES (?,?,?);';
-    const values = [dados.id_jog,dados.nomeCampeao,dados.idcampeao]
+    const sql = 'INSERT INTO Campeoes (id_jog,nomeCampeao,idcampeao,descricao) VALUES (?,?,?);';
+    const values = [dados.id_jog,dados.nomeCampeao,dados.idcampeao,dados.descricao]
     return await conn.query(sql,values);
 }
 
@@ -88,8 +97,8 @@ async function updateQuiz(dados){
 /*Update quando refaz o quiz*/
 async function updateCampeoes(dados){
     const conn = await connect();
-    const sql = 'UPDATE Campeoes SET nomeCampeao =?, idcampeao=? WHERE id_jog=?';
-    const values = [dados.nomeCampeao,dados.idcampeao,dados.id_jog]
+    const sql = 'UPDATE Campeoes SET nomeCampeao =?, idcampeao=?, descricao =? WHERE id_jog=?';
+    const values = [dados.nomeCampeao,dados.idcampeao,dados.descricao,dados.id_jog]
     return await conn.query(sql, values);
 }
 
