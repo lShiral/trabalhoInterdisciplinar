@@ -1,107 +1,209 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário Exemplo</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/floating-labels.css">
-    <link rel="stylesheet" href="src/css/style.css">
-</head>
-<body>
-        <div class="row justify-content-center area-form p-4">
-            <div class="col-sm-5 align-self-center ">
-                <div class="row justify-content-center mb-4">
-                    <img src="public/images/banner.png" class="img-fluid border rounded bg-dark bg-gradient" alt="">
-                </div>
-
-<h3 class="text-center align-center display-4 mb-4">Exemplo de Formulário</h3>
-
-<form action="./respostas.php" method="POST">
-    <div class="form-label-group mb-3 text-center">
-        <input type="text" id="nome" class="form-control" placeholder="Insira seu nome completo." required autofocus>
-        <label for="nome">Qual o seu nome?</label>
-      </div>
-      <div class="form-label-group mt-2 text-center">
-        <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required autofocus>
-        <label for="email">Qual o seu e-mail?</label>
-      </div>
-<span class="small d-block text-center my-3">Quais dessas funções lhe parecem interessantes? Marque todas pelas quais se interessar.</span>
-<div class="form-check text-center form-switch my-1">
-    <input class="form-check-input" type="checkbox" value="" id="mago">
-    <label class="form-check-label" for="mago">
-      Mago
-    </label>
-  </div>
-  <div class="form-check text-center form-switch my-1">
-    <input class="form-check-input" type="checkbox" value="" id="lutador">
-    <label class="form-check-label" for="lutador">
-      Lutador
-    </label>
-  </div>
-  <div class="form-check text-center form-switch my-1">
-    <input class="form-check-input" type="checkbox" value="" id="atirador">
-    <label class="form-check-label" for="atirador">
-      Atirador
-    </label>
-  </div>
-  <div class="form-check text-center form-switch my-1">
-    <input class="form-check-input" type="checkbox" value="" id="assassino">
-    <label class="form-check-label" for="assassino">
-      Assassino
-    </label>
-  </div>
-  <div class="form-check text-center form-switch my-1">
-    <input class="form-check-input" type="checkbox" value="" id="tanque">
-    <label class="form-check-label" for="tanque">
-      Tanque
-    </label>
-  </div>
-  <div class="form-check text-center mb-4 form-switch my-1">
-    <input class="form-check-input" type="checkbox" value="" id="suporte">
-    <label class="form-check-label" for="suporte">
-      Suporte
-    </label>
-  </div>
-  <span class="small d-block text-center my-3">Qual o seu nível de experiência com jogos do gênero MOBA?</span>
-  <div class="form-check text-center my-1">
-    <input class="form-check-input" type="radio" name="experiencia" id="nunca" value="semExperiencia" checked>
-    <label class="form-check-label" for="nunca">
-        Mo-o quê? É de comer?
-    </label>
-  </div>
-  <div class="form-check text-center my-1">
-    <input class="form-check-input" type="radio" name="experiencia" id="casual" value="experienciaCasual">
-    <label class="form-check-label" for="casual">
-        Já joguei um pouco no passado
-    </label>
-  </div>
-  <div class="form-check text-center my-1">
-    <input class="form-check-input" type="radio" name="experiencia" id="experiente" value="viciadoQueNemAJessica">
-    <label class="form-check-label" for="experiente">
-        Costumo jogar sempre que posso.
-    </label>
+<div class="row justify-content-center area-form my-2">
+  <div class="align-self-center ">
+    <div class="row justify-content-center">
+      <img id="formImage" src="/public/images/banner.png" class="img-fluid rounded bg-dark bg-gradient" alt="">
     </div>
-    <div class="form-check text-center my-1">
-        <input class="form-check-input" type="radio" name="experiencia" id="respostaDeCorno" value="respostaDesabilitada" disabled>
-        <label class="form-check-label" for="respostaDeCorno">
-        MOBA é coisa de vagabundo.
+
+    <h3 class="text-center align-center display-4 mt-4 mb-4">Exemplo de Formulário</h3>
+
+    <div class="form-floating mb-3 text-center">
+      <input type="text" id="nome" class="form-control" placeholder="Insira seu nome completo." required>
+      <label for="nome" class="form-label">Qual o seu nome?</label>
+      <div class="invalid-feedback">
+        Digite seu nome
+      </div>
+    </div>
+    <div class="form-floating mb-3 mt-2 text-center">
+      <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
+      <label for="email" class="form-label">Qual o seu e-mail?</label>
+      <div class="invalid-feedback">
+        Digite o email, nessa formatação: usuario@email.com
+      </div>
+    </div>
+    <div class="form-group">
+      <span class="small d-block text-center my-3">1- Em uma luta em equipe, qual função você prefere desempenhar?</span>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoLuta" id="iniciadorLuta" value="jg" required>
+        <label class="form-check-label" for="iniciadorLuta">
+          Ser o iniciador, que puxa a luta.
         </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoLuta" id="distanciaLuta" value="adc">
+        <label class="form-check-label" for="distanciaLuta">
+          Ser a pessoa que dá dano de longe.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoLuta" id="suporteLuta" value="sup">
+        <label class="form-check-label" for="suporteLuta">
+          Ser a pessoa que ajuda com cura/escudo.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoLuta" id="tanqueLuta" value="top">
+        <label class="form-check-label" for="tanqueLuta">
+          Ser a pessoa que segura o dano pro time.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoLuta" id="controladorLuta" value="mid">
+        <label class="form-check-label" for="controladorLuta">
+          Ser a pessoa que pode controlar a luta com habilidades e direcionar 
+o rumo do combate.
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="small d-block text-center my-3">2- Que função você prefere desempenhar ao longo do jogo?</span>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoJogo" id="controladorJogo" value="jg" required>
+        <label class="form-check-label" for="controladorJogo">
+          Ser o controlador de objetivos pelo mapa e poder auxiliar as rotas quando necessário.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoJogo" id="damagerJogo" value="adc">
+        <label class="form-check-label" for="damagerJogo">
+          Ser o jogador que vai causar muito dano e possívelmente carregar o time no final do jogo.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoJogo" id="suporteJogo" value="sup">
+        <label class="form-check-label" for="suporteJogo">
+          Ser o jogador que fornece cura e escudo ou aguenta a maior parte do dano para que seu time possa desempenhar uma boa luta em equipe.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoJogo" id="estrategicoJogo" value="mid">
+        <label class="form-check-label" for="estrategicoJogo">
+          Ser o jogador que causa muito dano e que pode direcionar o rumo das lutas com suas habilidades, levando a luta para pontos mais estratégicos do mapa.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="funcaoJogo" id="tanqueJogo" value="top">
+        <label class="form-check-label" for="tanqueJogo">
+          Ser o jogador que pode causar muito dano nas lutas e ao mesmo tempo poder aguentar uma boa parte do dano inimigo antes de morrer.
+        </label>
+      </div>
+      
+    </div>
+
+    <div class="form-group">
+      <span class="small d-block text-center my-3">3- Que tipo de personagem você prefere?</span>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="personagem" id="damagerPersonagem" value="adc" required>
+        <label class="form-check-label" for="damagerPersonagem">
+          Personagens frágeis, mas que causam muito dano.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="personagem" id="suportePersonagem" value="sup">
+        <label class="form-check-label" for="suportePersonagem">
+          Personagens com muita vida, mas pouco dano.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="personagem" id="iniciadorPersonagem" value="jg">
+        <label class="form-check-label" for="iniciadorPersonagem">
+         Personagens com habilidades de iniciação.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="personagem" id="tanquePersonagem" value="top">
+        <label class="form-check-label" for="tanquePersonagem">
+          Personagens que duram muito nas lutas e causam muito dano.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="personagem" id="controladorPersonagem" value="mid">
+        <label class="form-check-label" for="controladorPersonagem">
+          Personagens com habilidades que podem controlar a movimentação do seu adversário.
+        </label>
+      </div>
+      
+    </div>
+
+    <div class="form-group">
+      <span class="small d-block text-center my-3">4- Qual dessas frases define mais seu estilo de jogo?</span>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="frase" id="solitarioFrase" value="top" required>
+        <label class="form-check-label" for="solitarioFrase">
+          "Eu prefiro ficar isolado do time, acumulando recursos pra ficar mais forte ao longo do jogo".
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="frase" id="junglerFrase" value="jg">
+        <label class="form-check-label" for="junglerFrase">
+          "Eu gosto de rodar o mapa, ajudando meus companheiros de equipe e controlando objetivos".
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="frase" id="controleFrase" value="mid">
+        <label class="form-check-label" for="controleFrase">
+          "Eu gosto de poder ter controle sobre meu adversário, apesar de estar sempre vulnerável no jogo".
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="frase" id="distanciaFrase" value="adc">
+        <label class="form-check-label" for="distanciaFrase">
+          "Eu gosto de dar muito dano a distância, estando menos vulnerável durante as lutas".
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="frase" id="suporteFrase" value="sup">
+        <label class="form-check-label" for="suporteFrase">
+          "Eu gosto de ajudar meu time, seja curando, fornecendo escudos ou
+           segurando o dano do adversário para que meus aliados possam causar o máximo de dano possível ao longo da luta".
+        </label>
+      </div>
+      
+    </div>
+
+    <div class="form-group">
+      <span class="small d-block text-center my-3">5- Como você prefere causar dano em uma luta?</span>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="dano" id="distanciaDano" value="adc" required>
+        <label class="form-check-label" for="distanciaDano">
+          Atirando de longe, numa distancia segura do adversário.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="dano" id="habilidadesDano" value="jg">
+        <label class="form-check-label" for="habilidadesDano">
+          Iniciando com habilidades, mas depois partindo pra cima do adversário.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="dano" id="topDano" value="top">
+        <label class="form-check-label" for="topDano">
+          Simplesmente partindo pra cima e dando porrada em todo mundo.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="dano" id="midDano" value="mid">
+        <label class="form-check-label" for="midDano">
+          Causar dano de longe com habilidades.
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="dano" id="suporteDano" value="sup">
+        <label class="form-check-label" for="suporteDano">
+          Prefiro não causar muito dano, mas sim fortalecer meus aliados para que eles possam causar mais dano nas lutas.
+        </label>
+      </div>
+      
+    </div>
+
+    <div class="my-3 text-center">
+      <label class="lead mb-2" for="acrescimos">Comentários:</label>
+      <textarea class="form-control" rows="10" placeholder="Deixe seus comentários aqui." id="acrescimos"></textarea>
+    </div>
+    <div class="d-none">
+      <input type="text"value='' id="idUsuario" hidden disabled>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block w-100">Enviar</button>
   </div>
-  <div class="my-3 text-center">
-    <label class="lead mb-2" for="acrescimos">Comentários:</label>
-    <textarea class="form-control" rows="10" placeholder="Deixe seus comentários aqui." id="acrescimos"></textarea>
-  </div>
-<div class="input-group mt-2">
-    <input type="submit" class="form-control btn btn-info btn-block" value="Enviar">
 </div>
-
-</form>     
-            </div>
-        </div>
-
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="node_modules/popper.js/dist/popper.js"></script>    
-</body>
-</html>
+</div>
