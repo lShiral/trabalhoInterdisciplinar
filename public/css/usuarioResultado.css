@@ -1,9 +1,18 @@
+body{
+  
+}
 
 #right {
   margin: 0;
   padding: 0;
   margin-top: 1rem;
   margin-left: 1rem;
+  min-height: 100vh;
+  max-height: 100%;
+}
+#left {
+  min-height: 100vh;
+  max-height: 100%;
 }
 
 .collapsible {
@@ -60,10 +69,11 @@
 }
 
 /*dispositivos tipo telefones com telas grandes na orientação horizontal*/
-@media (min-width: 768px) and (max-height: 576px) {
+@media (min-width: 768px) {
   span#usuario, span#email_Usu{
     font-size: 1rem !important;
   }
+  
 }
 
 @media only screen and (max-width: 991.98px) and (min-height: 576px){
@@ -80,10 +90,6 @@
     padding: 0;
     margin-left: 0;
   }
-  #left{
-    min-height: 100vh;
-    max-height: 100%;
-  }
   .content .descricao, .content2 .descricao{
     margin-left:0;
   }
@@ -94,20 +100,43 @@
     width: auto!important;
     height: auto!important;
   }
-  #usuario,#email_Usu{
-    font-size:1.4rem!important;
+  span#email_Usu{
+    font-size:clamp(0.7rem,0.8rem,0.9rem)!important;
+  }
+  span#usuario {
+    font-size: 1rem !important;
   }
   #menu span{
     font-size:1.1rem!important;
   }
   
+} 
+
+@media (max-width: 991.98px) and (max-height: 576px) {
+  #right {
+    margin: 1rem;
+  }
+  #logo img.img-fluid {
+    margin-top: 1rem;
+    margin-left: 3rem !important;
+  }
+  #logo {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  span#email_Usu{
+    font-size:clamp(0.8rem,0.9rem,1rem)!important;
+    margin-left: 0.4rem;
+  }
+  span#usuario {
+    font-size: 1rem !important;
+  }
+  span#usuario {
+    margin-left: 4rem !important;
+  }
 }
 /*ipad pro - laptop m*/
 @media (min-width: 991.98px) and (min-height: 576px) {
-  #left{
-    min-height: 100vh;
-    max-height: 100%;
-  }
   .content p,.content2 p, span,button.collapsible {
     font-size: 1.4rem;
   }
@@ -119,7 +148,24 @@
     width: auto!important;
     height: auto!important;
   }
-  
+  #logo img.img-fluid {
+    margin-top: 1rem;
+    margin-left: 3rem !important;
+  }
+  #logo {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  span#email_Usu{
+    font-size:clamp(1rem,1.1rem,1.2rem)!important;
+    margin-left:0.5rem !important;
+  }
+  span#usuario {
+    font-size: 1.4rem !important;
+  }
+  span#usuario {
+    margin-left: 4rem !important;
+  }
 }
 
 @media (min-width: 1200px) { 
@@ -134,12 +180,16 @@
     height: auto!important;
   }
  }
-@media (min-width: 1200px) and (max-height: 576px) {
-}
+
 @media (min-width: 1200px) and (min-height: 576px) {
-  
+  span#usuario {
+    margin-left: 4rem !important;
+  }
+  span#email_Usu{
+    margin-left: 2.5rem !important;
+  }
 }
-@media (min-width: 1200px) and (min-height: 1200px) {
+@media (min-width: 1440px) and (min-height: 1440px) {
   .content img {
     margin-bottom: initial!important;
     max-width: 550px!important;
@@ -159,10 +209,27 @@
   button.collapsible{
     font-size: 2.5rem;
   }
-   #usuario,#email_Usu{
-    font-size: 3rem!important;
+  #logo img.img-fluid {
+    margin-top: 1rem;
+    margin-left: 6rem !important;
   }
-  #menu span,#menu i{
-    font-size: 4rem!important;
+  #logo {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #logo span#usuario {
+    font-size: 3rem !important;
+  }
+  #logo span#usuario {
+    margin-left: 8rem !important;
+  }
+  span#email_Usu {
+    font-size: clamp(2rem,2.5rem,2.5rem) !important;
+  }
+  #menu div{
+    margin-bottom: 20rem!important;
+  }
+  #menu span, #menu i {
+    font-size: 4rem !important;
   }
 }

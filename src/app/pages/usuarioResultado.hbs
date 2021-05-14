@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOLHelper - Resultado</title>
+
+  <!-- imports do bootstrap-->
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+  <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!--Imports do fontawesome-->
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+  </link>
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/v4-shims.css">
+  </link>
+  <script src="/public/scripts/usuarioQuiz.js"></script>
+
+  <!--Import modificaçoes css-->
+  <link rel="stylesheet" href="/public/css/usuarioResultado.css">
+  <link rel="stylesheet" href="/public/css/leftMenu.css">
+</head>
+
+<body class="">
+  <nav id='navebar' class="d-flex d-md-none navbar navbar-expand-md navbar-light bg-light">
+    <!-- Brand -->
+    <img id="logoimg" class="img-fluid rounded-circle navbar-brand ms-2" src="{{info.imagem}}"
+      alt="Logo usuário">
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span id="buttonnav" class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links CELULAR -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-4">
+        <li class="nav-item">
+          <div id="resultado" class="nav-link">
+            <a href=""> <i class="far fa-folder ative" id="pasta"></i>
+              <span>Resultado</span> </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div id="quiz" class="nav-link">
+            <a href="/usuarioQuiz"><i class="far fa-user" id="pessoa"></i> <span>Meu quiz</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div id="seguranca" class="nav-link">
+            <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
+              <span>Segurança</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div id="sair" class="nav-link">
+            <a href="/sair"> <i class="fas fa-power-off " id="desliga"></i> <span>Sair</span></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PC -->
+  <div id="main" class="container-fluid">
+    <div class="row">
+      <div id="left" class="row d-none d-md-block col-md-3 p-0">
+        <div id='logo' class="mx-auto row p-0">
+          <img class="img-fluid rounded-circle" src="{{info.imagem}}" alt="Logo usuário">
+          <div class="col-12 text-center mt-4">
+            <span id="email_Usu" class="">{{info.email}}</span>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <span id="usuario" class="">{{info.usuario}}</span>
+          </div>
+        </div>
+        <div id="menu" class="row">
+          <div id="resultado" class="col-12">
+            <a href=""> <i class="far fa-folder ative" id="pasta"></i>
+              <span>Resultado</span>
+            </a>
+          </div>
+          <div id="quiz" class="col-12">
+            <a href="/usuarioQuiz"><i class="far fa-user" id="pessoa"></i> <span>Meu quiz</span></a>
+          </div>
+          <div id="seguranca" class="col-12">
+            <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
+              <span>Segurança</span></a>
+          </div>
+          <div id="sair" class="col-12">
+            <a href="/sair"> <i class="fas fa-power-off" id="desliga"></i> <span>Sair</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div id="right" class="col-sm-12 col-md m-0 p-3 m-md-5 p-md-0">
+        <div class="">
+          <div>
+            <h1 class="text-primary" class="row">Resultado</h1>
+          </div>
+
+          <div class="">
+            <button type="button" class="collapsible">Campeões</button>
+            <div class="content">
+              {{#each dados}} 
+              <div class="titulo">
+                <p><strong>{{this.campeao}}</strong></p>
+              </div>
+              <div class="imagem-e-descricao row">
+                <img src="{{this.imagem}} " class=" col-sm-12 col-lg-6 mb-sm-4" alt="Braum">
+                <div class="descricao col-sm-12  col-lg">
+                  <p>{{this.descricao}}</p>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+            <button type="button" class="collapsible">Rota</button>
+            <div class="content2">
+              <p>Depois de uma análise precisa, a melhor rota para você começar a jogar é: Dupla</p>
+              <p>Lá você atuará como suporte. Quando você decide por jogar de suporte, precisa compreender que ele
+                está no jogo com o intuito de ajudar o Atirador a adquirir seus recursos, conceder visão para o time e
+                realizar a proteção de seus parceiros. Além disso, o suporte, na Fase de Rotas, é capaz de se movimentar
+                pelo mapa para, além de garantir a visão, auxiliar seus parceiros de time com o que estiver ao seu
+                alcance.</p>
+              <div class="imagem-rotas row">
+                <img src="/public/images/rotas.png" class="img-fluid mb-4 " alt="Rotas">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+<script src="/public/scripts/usuarioResultado.js"></script>
+
+</html>

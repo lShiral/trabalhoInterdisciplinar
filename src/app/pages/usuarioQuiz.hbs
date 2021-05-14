@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOLHelper - Meu Quiz</title>
+
+    <!-- imports do bootstrap-->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--Imports do fontawesome-->
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+    </link>
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/v4-shims.css">
+    </link>
+    <script src="/public/scripts/usuarioQuiz.js"></script>
+
+    <!--Import modificaçoes css-->
+    <link rel="stylesheet" href="/public/css/usuarioQuiz.css">
+    <link rel="stylesheet" href="/public/css/leftMenu.css">
+</head>
+
+<body class="">
+    <nav id='navebar' class="d-flex d-md-none navbar navbar-expand-md navbar-light bg-light">
+        <!-- Brand -->
+        <img id="logoimg" class="img-fluid rounded-circle navbar-brand ms-2" src="{{info.imagem}}"
+            alt="Logo usuário">
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span id="buttonnav" class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-4">
+                <li class="nav-item">
+                    <div id="resultado" class="nav-link">
+                        <a href="/usuarioResultado"> <i class="far fa-folder" id="pasta"></i>
+                            <span>Resultado</span> </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div id="quiz" class="nav-link">
+                        <a href=""><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div id="seguranca" class="nav-link">
+                        <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
+                            <span>Segurança</span></a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div id="sair" class="nav-link">
+                        <a href="/sair"> <i class="fas fa-power-off " id="desliga"></i> <span>Sair</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main" class="container-fluid">
+        <div class="row">
+            <div id="left" class="row d-none d-md-block col-md-3 p-0">
+                <div id='logo' class="mx-auto row p-0">
+                    <img class="img-fluid rounded-circle" src="{{info.imagem}}" alt="Logo usuário">
+                    <div class="col-12 text-center mt-4">
+                        <span id="email_Usu" class="">{{info.email}}</span>
+                    </div>
+                    <div class="col-12 text-center mt-4">
+                        <span id="usuario" class="">{{info.usuario}}</span>
+                    </div>
+                </div>
+                <div id="menu" class="row">
+                    <div id="resultado" class="col-12">
+                        <a href="/usuarioResultado"> <i class="far fa-folder" id="pasta"></i>
+                            <span>Resultado</span>
+                        </a>
+                    </div>
+                    <div id="quiz" class="col-12">
+                        <a href=""><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
+                    </div>
+                    <div id="seguranca" class="col-12">
+                        <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
+                            <span>Segurança</span></a>
+                    </div>
+                    <div id="sair" class="col-12">
+                        <a href="/sair"> <i class="fas fa-power-off" id="desliga"></i> <span>Sair</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="right" class="col-sm-12 col-md m-0 p-3 m-md-5 p-md-0">
+                <div class="row text-center">
+                    <h1 class="text-primary">Quiz</h1>
+                </div>
+                <div class="row mt-4 d-none">
+                    <button type="button" class="btn btn-primary mx-auto">Refazer Quiz</button>
+                </div>
+                <div class="row m-0 p-0">
+                    <div class="container-fluid">
+                        <form action="/registraQuiz" class="needs-validation" id="quiz" method="POST" novalidate>
+                            <div class="row justify-content-center area-form my-2">
+  <div class="align-self-center ">
+    <div class="row justify-content-center">
+      <img id="formImage" src="/public/images/banner.png" class="img-fluid rounded bg-dark bg-gradient" alt="">
+    </div>
+
+    <h3 class="text-center align-center display-4 mt-4 mb-4">Exemplo de Formulário</h3>
+
+    <div class="form-floating mb-3 text-center">
+      <input type="text" id="nome" class="form-control" placeholder="Insira seu nome completo." required>
+      <label for="nome" class="form-label">Qual o seu nome?</label>
+      <div class="invalid-feedback">
+        Digite seu nome
+      </div>
+    </div>
+    <div class="form-floating mb-3 mt-2 text-center">
+      <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
+      <label for="email" class="form-label">Qual o seu e-mail?</label>
+      <div class="invalid-feedback">
+        Digite o email, nessa formatação: usuario@email.com
+      </div>
+    </div>
+    <div class="form-group">
+      <span class="small d-block text-center my-3">Quais dessas funções lhe parecem interessantes? Marque todas pelas
+        quais se interessar.</span>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="mago">
+        <label class="form-check-label" for="mago">
+          Mago
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="lutador">
+        <label class="form-check-label" for="lutador">
+          Lutador
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="atirador">
+        <label class="form-check-label" for="atirador">
+          Atirador
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="assassino">
+        <label class="form-check-label" for="assassino">
+          Assassino
+        </label>
+      </div>
+      <div class="form-check text-center form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="tanque">
+        <label class="form-check-label" for="tanque">
+          Tanque
+        </label>
+      </div>
+      <div class="form-check text-center mb-4 form-switch my-1">
+        <input class="form-check-input" type="checkbox" value="" id="suporte">
+        <label class="form-check-label" for="suporte">
+          Suporte
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="small d-block text-center my-3">Qual o seu nível de experiência com jogos do gênero MOBA?</span>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="nunca" value="semExperiencia" required>
+        <label class="form-check-label" for="nunca">
+          Mo-o quê? É de comer?
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="casual" value="experienciaCasual">
+        <label class="form-check-label" for="casual">
+          Já joguei um pouco no passado
+        </label>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="experiente" value="viciadoQueNemAJessica">
+        <label class="form-check-label" for="experiente">
+          Costumo jogar sempre que posso.
+        </label>
+        <div class="invalid-feedback">
+          Assinale uma alternativa
+        </div>
+      </div>
+      <div class="form-check text-center my-1">
+        <input class="form-check-input" type="radio" name="experiencia" id="respostaDeCorno"
+          value="respostaDesabilitada" disabled>
+        <label class="form-check-label" for="respostaDeCorno">
+          MOBA é coisa de vagabundo.
+        </label>
+        
+      </div>
+      
+    </div>
+
+    <div class="my-3 text-center">
+      <label class="lead mb-2" for="acrescimos">Comentários:</label>
+      <textarea class="form-control" rows="10" placeholder="Deixe seus comentários aqui." id="acrescimos"></textarea>
+    </div>
+    <div class="d-none">
+      <input type="text"value='' id="idUsuario" hidden disabled>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block w-100">Enviar</button>
+  </div>
+</div>
+</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
