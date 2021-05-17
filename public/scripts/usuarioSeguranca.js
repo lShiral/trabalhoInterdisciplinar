@@ -8,8 +8,10 @@ repete.onchange = retira
 function retira() {
     if (nova.value != repete.value) {
         document.getElementById("diferente").style = "display: inline-block"
+         let button = document.getElementById("enviar").disabled = true;
     } else {
         document.getElementById("diferente").style = "display: none"
+        let button = document.getElementById("enviar").disabled = false;
     }
 }
 

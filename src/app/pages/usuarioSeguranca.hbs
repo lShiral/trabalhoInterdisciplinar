@@ -28,7 +28,7 @@
 <body>
     <nav id='navebar' class="d-flex d-md-none navbar navbar-expand-md navbar-light bg-light">
         <!-- Brand -->
-        <img id="logoimg" class=" ms-2 img-fluid rounded-circle navbar-brand" src="{{info.imagem}}g"
+        <img id="logoimg" class=" ms-2 img-fluid rounded-circle navbar-brand" src="{{info.imagem}}"
             alt="Logo usuário">
 
         <!-- Toggler/collapsibe Button -->
@@ -180,19 +180,20 @@
                                 </div>
 
                                 <div id="imagemUsuario" class="form-check col-12 col-md-6 col-lg  col-xxl-4 mb-4">
-                                    <input class="form-check-input" type="radio" id="inpimagem2" name="avatar" value="/public/images/banner.svg">
+                                    <input class="form-check-input" type="radio" id="inpimagem4" name="avatar" value="/public/images/banner.svg">
                                     <label class="form-check-label " for="inpimagem" id="txtimagem">
                                         <img src="/public/images/banner.svg" class="img-fluid rounded"
                                             alt="Braum">
                                     </label>
                                 </div>
+                                <input class="d-none" type="radio" id="inpimagem5" name="avatar" value="{{info.imagem}}" checked>
                             </div>
                             <div class="row mt-4 mr-2">
                                 <div id="SenhaAtual" class="form-group col-md mb-2">
                                     <label id="txtsenhaAtual" for="senhaAtual">Senha atual </label>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                        <input type="password" id="senhaAtual" class="form-control d-lg form-control-lg">
+                                        <input type="password" id="senhaAtual" class="form-control d-lg form-control-lg" name="senhaAtual">
                                     </div>
                                 </div>
 
@@ -212,7 +213,7 @@
                                 </div>
                             </div>
                             <div id="btnAcpt" class="row m-0 mt-4 mb-4">
-                                <button type="submit" class="btn btn-primary btn-lg">Alterar</button>
+                                <button type="submit" id="enviar" class="btn btn-primary btn-lg">Alterar</button>
                             </div>
                         </div>
                     </form>

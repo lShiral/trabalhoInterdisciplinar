@@ -95,8 +95,7 @@ body{
   }
   .content img {
     margin-bottom: initial!important;
-    max-width: 350px!important;
-    max-height: 180px!important;
+   
     width: auto!important;
     height: auto!important;
   }
@@ -143,8 +142,7 @@ body{
   
   .content img {
     margin-bottom: initial!important;
-    max-width: 250px!important;
-    max-height: 385px!important;
+    max-width: 40%;
     width: auto!important;
     height: auto!important;
   }
@@ -174,8 +172,6 @@ body{
   }
   .content img {
     margin-bottom: initial!important;
-    max-width: 250px!important;
-    max-height: 185px!important;
     width: auto!important;
     height: auto!important;
   }

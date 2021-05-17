@@ -2,226 +2,366 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOLHelper - Meu Quiz</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOLHelper - Meu Quiz</title>
 
-    <!-- imports do bootstrap-->
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- imports do bootstrap-->
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
-    <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
-    <script src="/node_modules/popper.js/dist/popper.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!--Imports do fontawesome-->
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
-    </link>
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/v4-shims.css">
-    </link>
-    <script src="/public/scripts/usuarioQuiz.js"></script>
+  <script src="/node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="/node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!--Imports do fontawesome-->
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css">
+  </link>
+  <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/v4-shims.css">
+  </link>
 
-    <!--Import modificaçoes css-->
-    <link rel="stylesheet" href="/public/css/usuarioQuiz.css">
-    <link rel="stylesheet" href="/public/css/leftMenu.css">
+  <!--Import modificaçoes css-->
+  <link rel="stylesheet" href="/public/css/usuarioQuiz.css">
+  <link rel="stylesheet" href="/public/css/leftMenu.css">
 </head>
 
 <body class="">
-    <nav id='navebar' class="d-flex d-md-none navbar navbar-expand-md navbar-light bg-light">
-        <!-- Brand -->
-        <img id="logoimg" class="img-fluid rounded-circle navbar-brand ms-2" src="{{info.imagem}}"
-            alt="Logo usuário">
+  <nav id='navebar' class="d-flex d-md-none navbar navbar-expand-md navbar-light bg-light">
+    <!-- Brand -->
+    <img id="logoimg" class="img-fluid rounded-circle navbar-brand ms-2" src="{{info.imagem}}" alt="Logo usuário">
 
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span id="buttonnav" class="navbar-toggler-icon"></span>
-        </button>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span id="buttonnav" class="navbar-toggler-icon"></span>
+    </button>
 
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav m-4">
-                <li class="nav-item">
-                    <div id="resultado" class="nav-link">
-                        <a href="/usuarioResultado"> <i class="far fa-folder" id="pasta"></i>
-                            <span>Resultado</span> </a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div id="quiz" class="nav-link">
-                        <a href=""><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div id="seguranca" class="nav-link">
-                        <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
-                            <span>Segurança</span></a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <div id="sair" class="nav-link">
-                        <a href="/sair"> <i class="fas fa-power-off " id="desliga"></i> <span>Sair</span></a>
-                    </div>
-                </li>
-            </ul>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-4">
+        <li class="nav-item">
+          <div id="resultado" class="nav-link">
+            <a href="/usuarioResultado"> <i class="far fa-folder" id="pasta"></i>
+              <span>Resultado</span> </a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div id="quiz" class="nav-link">
+            <a href=""><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div id="seguranca" class="nav-link">
+            <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
+              <span>Segurança</span></a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div id="sair" class="nav-link">
+            <a href="/sair"> <i class="fas fa-power-off " id="desliga"></i> <span>Sair</span></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main" class="container-fluid">
+    <div class="row">
+      <div id="left" class="row d-none d-md-block col-md-3 p-0">
+        <div id='logo' class="mx-auto row p-0">
+          <img class="img-fluid rounded-circle" src="{{info.imagem}}" alt="Logo usuário">
+          <div class="col-12 text-center mt-4">
+            <span id="email_Usu" class="">{{info.email}}</span>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <span id="usuario" class="">{{info.usuario}}</span>
+          </div>
         </div>
-    </nav>
-
-    <div id="main" class="container-fluid">
-        <div class="row">
-            <div id="left" class="row d-none d-md-block col-md-3 p-0">
-                <div id='logo' class="mx-auto row p-0">
-                    <img class="img-fluid rounded-circle" src="{{info.imagem}}" alt="Logo usuário">
-                    <div class="col-12 text-center mt-4">
-                        <span id="email_Usu" class="">{{info.email}}</span>
-                    </div>
-                    <div class="col-12 text-center mt-4">
-                        <span id="usuario" class="">{{info.usuario}}</span>
-                    </div>
-                </div>
-                <div id="menu" class="row">
-                    <div id="resultado" class="col-12">
-                        <a href="/usuarioResultado"> <i class="far fa-folder" id="pasta"></i>
-                            <span>Resultado</span>
-                        </a>
-                    </div>
-                    <div id="quiz" class="col-12">
-                        <a href=""><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
-                    </div>
-                    <div id="seguranca" class="col-12">
-                        <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
-                            <span>Segurança</span></a>
-                    </div>
-                    <div id="sair" class="col-12">
-                        <a href="/sair"> <i class="fas fa-power-off" id="desliga"></i> <span>Sair</span></a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="right" class="col-sm-12 col-md m-0 p-3 m-md-5 p-md-0">
-                <div class="row text-center">
-                    <h1 class="text-primary">Quiz</h1>
-                </div>
-                <div class="row mt-4 d-none">
-                    <button type="button" class="btn btn-primary mx-auto">Refazer Quiz</button>
-                </div>
-                <div class="row m-0 p-0">
-                    <div class="container-fluid">
-                        <form action="/registraQuiz" class="needs-validation" id="quiz" method="POST" novalidate>
-                            <div class="row justify-content-center area-form my-2">
-  <div class="align-self-center ">
-    <div class="row justify-content-center">
-      <img id="formImage" src="/public/images/banner.png" class="img-fluid rounded bg-dark bg-gradient" alt="">
-    </div>
-
-    <h3 class="text-center align-center display-4 mt-4 mb-4">Exemplo de Formulário</h3>
-
-    <div class="form-floating mb-3 text-center">
-      <input type="text" id="nome" class="form-control" placeholder="Insira seu nome completo." required>
-      <label for="nome" class="form-label">Qual o seu nome?</label>
-      <div class="invalid-feedback">
-        Digite seu nome
-      </div>
-    </div>
-    <div class="form-floating mb-3 mt-2 text-center">
-      <input type="email" id="email" class="form-control" placeholder="seu.email@exemplo.com" required>
-      <label for="email" class="form-label">Qual o seu e-mail?</label>
-      <div class="invalid-feedback">
-        Digite o email, nessa formatação: usuario@email.com
-      </div>
-    </div>
-    <div class="form-group">
-      <span class="small d-block text-center my-3">Quais dessas funções lhe parecem interessantes? Marque todas pelas
-        quais se interessar.</span>
-      <div class="form-check text-center form-switch my-1">
-        <input class="form-check-input" type="checkbox" value="" id="mago">
-        <label class="form-check-label" for="mago">
-          Mago
-        </label>
-      </div>
-      <div class="form-check text-center form-switch my-1">
-        <input class="form-check-input" type="checkbox" value="" id="lutador">
-        <label class="form-check-label" for="lutador">
-          Lutador
-        </label>
-      </div>
-      <div class="form-check text-center form-switch my-1">
-        <input class="form-check-input" type="checkbox" value="" id="atirador">
-        <label class="form-check-label" for="atirador">
-          Atirador
-        </label>
-      </div>
-      <div class="form-check text-center form-switch my-1">
-        <input class="form-check-input" type="checkbox" value="" id="assassino">
-        <label class="form-check-label" for="assassino">
-          Assassino
-        </label>
-      </div>
-      <div class="form-check text-center form-switch my-1">
-        <input class="form-check-input" type="checkbox" value="" id="tanque">
-        <label class="form-check-label" for="tanque">
-          Tanque
-        </label>
-      </div>
-      <div class="form-check text-center mb-4 form-switch my-1">
-        <input class="form-check-input" type="checkbox" value="" id="suporte">
-        <label class="form-check-label" for="suporte">
-          Suporte
-        </label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <span class="small d-block text-center my-3">Qual o seu nível de experiência com jogos do gênero MOBA?</span>
-      <div class="form-check text-center my-1">
-        <input class="form-check-input" type="radio" name="experiencia" id="nunca" value="semExperiencia" required>
-        <label class="form-check-label" for="nunca">
-          Mo-o quê? É de comer?
-        </label>
-      </div>
-      <div class="form-check text-center my-1">
-        <input class="form-check-input" type="radio" name="experiencia" id="casual" value="experienciaCasual">
-        <label class="form-check-label" for="casual">
-          Já joguei um pouco no passado
-        </label>
-      </div>
-      <div class="form-check text-center my-1">
-        <input class="form-check-input" type="radio" name="experiencia" id="experiente" value="viciadoQueNemAJessica">
-        <label class="form-check-label" for="experiente">
-          Costumo jogar sempre que posso.
-        </label>
-        <div class="invalid-feedback">
-          Assinale uma alternativa
+        <div id="menu" class="row">
+          <div id="resultado" class="col-12">
+            <a href="/usuarioResultado"> <i class="far fa-folder" id="pasta"></i>
+              <span>Resultado</span>
+            </a>
+          </div>
+          <div id="quiz" class="col-12">
+            <a href=""><i class="far fa-user ative" id="pessoa"></i> <span>Meu quiz</span></a>
+          </div>
+          <div id="seguranca" class="col-12">
+            <a href="/usuarioSeguranca"><i class="fas fa-cog" id="engrenagem"></i>
+              <span>Segurança</span></a>
+          </div>
+          <div id="sair" class="col-12">
+            <a href="/sair"> <i class="fas fa-power-off" id="desliga"></i> <span>Sair</span></a>
+          </div>
         </div>
       </div>
-      <div class="form-check text-center my-1">
-        <input class="form-check-input" type="radio" name="experiencia" id="respostaDeCorno"
-          value="respostaDesabilitada" disabled>
-        <label class="form-check-label" for="respostaDeCorno">
-          MOBA é coisa de vagabundo.
-        </label>
-        
-      </div>
-      
-    </div>
 
-    <div class="my-3 text-center">
-      <label class="lead mb-2" for="acrescimos">Comentários:</label>
-      <textarea class="form-control" rows="10" placeholder="Deixe seus comentários aqui." id="acrescimos"></textarea>
+      <div id="right" class="col-sm-12 col-md m-0 p-3 m-md-5 p-md-0">
+        <div class="row text-center">
+          <h1 class="text-primary">Quiz</h1>
+        </div>
+        {{#if info.fezQuiz}}
+        <div class="row mt-4 mb-4">
+          <span class="text-center mb-2">
+            Você já fez o quiz, se desejar refaze-lo clique no botao abaixo.
+          </span>
+          <button type="button" id="refazer" class="btn w-50 btn-primary mx-auto" onclick="mudarForm()">Refazer
+            Quiz</button>
+        </div>
+        {{/if}}
+
+        <div class="row m-0 p-0">
+          <div class="container-fluid">
+            <form action="/registraQuiz" class="needs-validation" id="quiz" name="quiz" method="POST" novalidate>
+              <div class="row justify-content-center area-form my-2">
+                <div class="align-self-center ">
+                  <div class="row justify-content-center">
+                    <img id="formImage" src="/public/images/banner.png" class="img-fluid rounded bg-dark bg-gradient"
+                      alt="">
+                  </div>
+
+                  <h3 class="text-center align-center display-4 mt-4 mb-4">Exemplo de Formulário</h3>
+
+                  <div class="form-floating mb-3 text-center">
+                    <input type="text" id="nome" name="nome" class="form-control" placeholder="Insira seu nome completo." required>
+                    <label for="nome" class="form-label">Qual o seu nome?</label>
+                    <div class="invalid-feedback">
+                      Digite seu nome
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3 mt-2 text-center">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="seu.email@exemplo.com" required>
+                    <label for="email" class="form-label">Qual o seu e-mail?</label>
+                    <div class="invalid-feedback">
+                      Digite o email, nessa formatação: usuario@email.com
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <span class="fs-4 d-block text-center my-3">1- Em uma luta em equipe, qual função você prefere
+                      desempenhar?</span>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoLuta" id="iniciadorLuta" value="jg"
+                        required>
+                      <label class="form-check-label" for="iniciadorLuta">
+                        Ser o iniciador, que puxa a luta.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoLuta" id="distanciaLuta" value="adc">
+                      <label class="form-check-label" for="distanciaLuta">
+                        Ser a pessoa que dá dano de longe.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoLuta" id="suporteLuta" value="sup">
+                      <label class="form-check-label" for="suporteLuta">
+                        Ser a pessoa que ajuda com cura/escudo.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoLuta" id="tanqueLuta" value="top">
+                      <label class="form-check-label" for="tanqueLuta">
+                        Ser a pessoa que segura o dano pro time.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoLuta" id="controladorLuta" value="mid">
+                      <label class="form-check-label" for="controladorLuta">
+                        Ser a pessoa que pode controlar a luta com habilidades e direcionar
+                        o rumo do combate.
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <span class="fs-4 d-block text-center my-3">2- Que função você prefere desempenhar ao longo do
+                      jogo?</span>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoJogo" id="controladorJogo" value="jg"
+                        required>
+                      <label class="form-check-label" for="controladorJogo">
+                        Ser o controlador de objetivos pelo mapa e poder auxiliar as rotas quando necessário.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoJogo" id="damagerJogo" value="adc">
+                      <label class="form-check-label" for="damagerJogo">
+                        Ser o jogador que vai causar muito dano e possívelmente carregar o time no final do jogo.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoJogo" id="suporteJogo" value="sup">
+                      <label class="form-check-label" for="suporteJogo">
+                        Ser o jogador que fornece cura e escudo ou aguenta a maior parte do dano para que seu time possa
+                        desempenhar uma boa luta em equipe.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoJogo" id="estrategicoJogo" value="mid">
+                      <label class="form-check-label" for="estrategicoJogo">
+                        Ser o jogador que causa muito dano e que pode direcionar o rumo das lutas com suas habilidades,
+                        levando a luta para pontos mais estratégicos do mapa.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="funcaoJogo" id="tanqueJogo" value="top">
+                      <label class="form-check-label" for="tanqueJogo">
+                        Ser o jogador que pode causar muito dano nas lutas e ao mesmo tempo poder aguentar uma boa parte
+                        do dano inimigo antes de morrer.
+                      </label>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <span class="fs-4 d-block text-center my-3">3- Que tipo de personagem você prefere?</span>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="personagem" id="damagerPersonagem" value="adc"
+                        required>
+                      <label class="form-check-label" for="damagerPersonagem">
+                        Personagens frágeis, mas que causam muito dano.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="personagem" id="suportePersonagem" value="sup">
+                      <label class="form-check-label" for="suportePersonagem">
+                        Personagens com muita vida, mas pouco dano.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="personagem" id="iniciadorPersonagem"
+                        value="jg">
+                      <label class="form-check-label" for="iniciadorPersonagem">
+                        Personagens com habilidades de iniciação.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="personagem" id="tanquePersonagem" value="top">
+                      <label class="form-check-label" for="tanquePersonagem">
+                        Personagens que duram muito nas lutas e causam muito dano.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="personagem" id="controladorPersonagem"
+                        value="mid">
+                      <label class="form-check-label" for="controladorPersonagem">
+                        Personagens com habilidades que podem controlar a movimentação do seu adversário.
+                      </label>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <span class="fs-4 d-block text-center my-3">4- Qual dessas frases define mais seu estilo de
+                      jogo?</span>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="frase" id="solitarioFrase" value="top"
+                        required>
+                      <label class="form-check-label" for="solitarioFrase">
+                        "Eu prefiro ficar isolado do time, acumulando recursos pra ficar mais forte ao longo do jogo".
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="frase" id="junglerFrase" value="jg">
+                      <label class="form-check-label" for="junglerFrase">
+                        "Eu gosto de rodar o mapa, ajudando meus companheiros de equipe e controlando objetivos".
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="frase" id="controleFrase" value="mid">
+                      <label class="form-check-label" for="controleFrase">
+                        "Eu gosto de poder ter controle sobre meu adversário, apesar de estar sempre vulnerável no
+                        jogo".
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="frase" id="distanciaFrase" value="adc">
+                      <label class="form-check-label" for="distanciaFrase">
+                        "Eu gosto de dar muito dano a distância, estando menos vulnerável durante as lutas".
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="frase" id="suporteFrase" value="sup">
+                      <label class="form-check-label" for="suporteFrase">
+                        "Eu gosto de ajudar meu time, seja curando, fornecendo escudos ou
+                        segurando o dano do adversário para que meus aliados possam causar o máximo de dano possível ao
+                        longo da luta".
+                      </label>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <span class="fs-4 d-block text-center my-3">5- Como você prefere causar dano em uma luta?</span>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="dano" id="distanciaDano" value="adc" required>
+                      <label class="form-check-label" for="distanciaDano">
+                        Atirando de longe, numa distancia segura do adversário.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="dano" id="habilidadesDano" value="jg">
+                      <label class="form-check-label" for="habilidadesDano">
+                        Iniciando com habilidades, mas depois partindo pra cima do adversário.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="dano" id="topDano" value="top">
+                      <label class="form-check-label" for="topDano">
+                        Simplesmente partindo pra cima e dando porrada em todo mundo.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="dano" id="midDano" value="mid">
+                      <label class="form-check-label" for="midDano">
+                        Causar dano de longe com habilidades.
+                      </label>
+                    </div>
+                    <div class="form-check text-center my-1">
+                      <input class="form-check-input" type="radio" name="dano" id="suporteDano" value="sup">
+                      <label class="form-check-label" for="suporteDano">
+                        Prefiro não causar muito dano, mas sim fortalecer meus aliados para que eles possam causar mais
+                        dano nas lutas.
+                      </label>
+                    </div>
+
+                  </div>
+
+                  <div class="my-3 text-center">
+                    <label class="lead mb-2" for="acrescimos">Comentários:</label>
+                    <textarea style='resize: none' class="form-control" rows="10"
+                      placeholder="Deixe seus comentários aqui." name="comentario" id="acrescimos"></textarea>
+                  </div>
+                  <div class="d-none">
+                    <input type="text" value='' id="idUsuario" hidden disabled>
+                  </div>
+                  <button type="submit" id="enviar" class="btn btn-primary btn-block w-100">Enviar</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="d-none">
-      <input type="text"value='' id="idUsuario" hidden disabled>
-    </div>
-    <button type="submit" class="btn btn-primary btn-block w-100">Enviar</button>
   </div>
-</div>
-</div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </body>
-
+<script>
+  onload = bloqueio;
+  function bloqueio() {
+    if ({{ info.fezQuiz }} == 1) {
+    $("input").attr("disabled", true);
+    $('textarea').attr("disabled", true);
+    button = document.getElementById("enviar");
+    button.disabled = true;
+  }
+}
+function mudarForm(){
+  $("input").attr("disabled", false);
+      $('textarea').attr("disabled",false);
+      button = document.getElementById("enviar");
+      button.disabled = false;
+      document.quiz.action = "/updateQuiz"
+}
+</script>
+<script src="/public/scripts/usuarioQuiz.js"></script>
 </html>

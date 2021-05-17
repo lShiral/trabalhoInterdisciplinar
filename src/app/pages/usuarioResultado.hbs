@@ -103,21 +103,20 @@
           <div>
             <h1 class="text-primary" class="row">Resultado</h1>
           </div>
-
+    {{#if info.fezQuiz}}
+          <div class="row mt-4 mb-4">
+            <span class="text-center mb-2">
+              Você ainda não fez o quiz, se desejar fazê-lo clique no botão abaixo.
+            </span>
+            <button type="button" id="refazer" class="btn w-50 btn-primary mx-auto"><a href="/usuarioQuiz"
+                style="color:white; text-decoration:none;">Fazer
+                Quiz</a> </button>
+          </div>
+        {{else}}   
           <div class="">
             <button type="button" class="collapsible">Campeões</button>
-            <div class="content">
-              {{#each dados}} 
-              <div class="titulo">
-                <p><strong>{{this.campeao}}</strong></p>
-              </div>
-              <div class="imagem-e-descricao row">
-                <img src="{{this.imagem}} " class=" col-sm-12 col-lg-6 mb-sm-4" alt="Braum">
-                <div class="descricao col-sm-12  col-lg">
-                  <p>{{this.descricao}}</p>
-                </div>
-              </div>
-              {{/each}}
+            <div class="content" id="content">
+              
             </div>
             <button type="button" class="collapsible">Rota</button>
             <div class="content2">
@@ -128,10 +127,106 @@
               </div>
             </div>
           </div>
+          {{/if}}
         </div>
+        
       </div>
     </div>
 </body>
 <script src="/public/scripts/usuarioResultado.js"></script>
+<script>
+  onload = pegaChamp() 
+   onload = pegaChamp2()
+    onload = pegaChamp3()
+  var casa = {}
+  function pegaChamp(){
+    const url = "http://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados1.nome}}.json";
+        fetch(url)
+            .then((resp) => resp.json())
+            .then((ret) => {
+                //console.log(ret)
+                casa =  {
+                    nome: ret.data.{{dados1.nome}}.id + " - " + ret.data.{{dados1.nome}}.title,
+                    descricao: ret.data.{{dados1.nome}}.lore,
+                    imagem: "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados1.nome}}_0.jpg"
+                }
+                criarElement(casa);
+                console.log(casa)
 
+            }); 
+}
+
+function pegaChamp3(){
+    const url2 = "http://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados3.nome}}.json";
+        fetch(url2)
+            .then((resp) => resp.json())
+            .then((ret) => {
+                //console.log(ret)
+                casa =  {
+                    nome: ret.data.{{dados3.nome}}.id + " - " + ret.data.{{dados3.nome}}.title,
+                    descricao: ret.data.{{dados3.nome}}.lore,
+                    imagem: "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados3.nome}}_0.jpg"
+                }
+                criarElement(casa);
+                console.log(casa)
+
+            }); 
+}
+
+function pegaChamp2(){
+    const url3 = "http://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados2.nome}}.json";
+        fetch(url3)
+            .then((resp) => resp.json())
+            .then((ret) => {
+                //console.log(ret)
+                casa =  {
+                    nome: ret.data.{{dados2.nome}}.id + " - " + ret.data.{{dados2.nome}}.title,
+                    descricao: ret.data.{{dados2.nome}}.lore,
+                    imagem: "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados2.nome}}_0.jpg"
+                }
+                criarElement(casa);
+                console.log(casa)
+
+            }); 
+}
+
+function criarElement(data){
+  content = document.getElementById("content");
+
+  divtitulo = document.createElement("div");
+  divtitulo.classList.add("titulo");
+  pTitulo = document.createElement("p");
+  strongTitulo = document.createElement("strong");
+
+  textoStrong = document.createTextNode(data.nome);
+
+  strongTitulo.appendChild(textoStrong);
+  pTitulo.appendChild(strongTitulo);
+  divtitulo.appendChild(pTitulo);
+
+  divImagemDescricao = document.createElement("div");
+  divImagemDescricao.classList.add("imagem-e-descricao");
+  divImagemDescricao.classList.add("row");
+  img = document.createElement("img")
+  img.classList.add("col-sm-12");
+  img.classList.add("col-lg-6");
+  img.classList.add("mb-sm-4");
+  img.alt = "{{dados.nome}}"
+  img.src = data.imagem;
+  divDescricao = document.createElement("div");
+  divDescricao.classList.add("descricao");
+  divDescricao.classList.add("col-sm-12");
+  divDescricao.classList.add("col-lg");
+  pDescricao = document.createElement("p");
+  textoP = document.createTextNode(data.descricao);// tentar innerHTML se n der
+
+  pDescricao.appendChild(textoP);
+  divDescricao.appendChild(pDescricao);
+  divImagemDescricao.appendChild(img);
+  divImagemDescricao.appendChild(divDescricao);
+
+  content.appendChild(divtitulo);
+  content.appendChild(divImagemDescricao);
+}
+</script>
 </html>

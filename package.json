@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/server.js"
+    "start": "nodemon ./src/server.js",
+    "dev": "nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +23,9 @@
     "hbs": "^4.1.2",
     "jquery": "^3.6.0",
     "mysql2": "^2.2.5",
-    "nodemon": "^2.0.7",
-    "popper.js": "^1.16.1",
-    "vue": "^2.6.12"
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }

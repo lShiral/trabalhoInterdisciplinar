@@ -28,16 +28,47 @@
     <div id="main" class="">
         <div id="acesso" class="w-sm-100 p-4 bg-light d-lg-block float-lg-end mb-5 mb-lg-0">
             <!-- Endereçar form para verificação e dps para usuarioSeguranca-->
-            <form action="/esqueciSenha" method="POST" class="needs-validation" novalidate>
+        {{#if info.recuperar}}
+                <form action="/redefinirSenha" method="POST" class="needs-validation" novalidate>
                 <h1 class="text-primary m-4 text-center text-lg-start">Esqueci minha senha</h1>
-                <p class="descricao">Um link para alterá-la será enviado para o e-mail.</p>
+                <p class="descricao">Insira a nova senha para o acesso a plataforma.</p>
+                <div id="email" class="form-group mb-4">
+                    <label id="txtemail" for="inpemail"><i class="text-danger">*</i> Senha
+                    </label>
+                    <div class="input-group mt-3 mb-4">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="inpsenha1" class="form-control form-control-lg"
+                            placeholder="Insira sua nova senha" name="senha" required />
+                    </div>
+                </div>
+                
+                <input value="{{info.email}}" name="email" hidden>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md text-center p-3">
+                            <a class="text-dark fw-bold text-uppercase" href="/">Voltar</a>
+                        </div>
+                        <div class="col-md">
+                            <button type="submit" class=" w-100 btn btn-primary btn-lg">
+                                Recuperar
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        {{else}}
+                    <form action="/esqueciSenha" method="POST" class="needs-validation" novalidate>
+                <h1 class="text-primary m-4 text-center text-lg-start">Esqueci minha senha</h1>
+                <p class="descricao">Insira o email da conta que deseja alterar a senha.</p>
                 <div id="email" class="form-group mb-4">
                     <label id="txtemail" for="inpemail"><i class="text-danger">*</i> Email
                     </label>
                     <div class="input-group mt-3">
                         <span class="input-group-text"> <i>@</i> </span>
                         <input type="email" id="inpemail" class="form-control form-control-lg"
-                            placeholder="seunome@email.com" required />
+                            placeholder="seunome@email.com" name="email" required />
                     </div>
                 </div>
                 
@@ -55,10 +86,14 @@
                     </div>
                 </div>
             </form>
+            {{/if}}
+
         </div>
 
     </div>
 </body>
 <script src="/public/scripts/form.js"></script>
-
+{{#if info.error}}
+<script>alert("Este e-mail não existe!")</script>
+{{/if}}
 </html>

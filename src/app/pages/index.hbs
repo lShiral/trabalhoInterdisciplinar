@@ -72,4 +72,9 @@
     </div>
 </body>
 <script src="/public/scripts/form.js"></script>
+{{#if info.error}}
+<script>window.alert("O e-mail e/ou senha estão incorretos ou não cadastrados!"); 
+    window.location.href="/"
+    </script>
+{{/if}}
 </html>
