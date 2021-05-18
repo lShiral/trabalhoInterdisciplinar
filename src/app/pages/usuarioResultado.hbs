@@ -276,7 +276,7 @@
     onload = pegaChamp3()
   var casa = {}
   function pegaChamp(){
-    const url = "http://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados1.nome}}.json";
+    const url = "https://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados1.nome}}.json";
         fetch(url)
             .then((resp) => resp.json())
             .then((ret) => {
@@ -284,7 +284,7 @@
                 casa =  {
                     nome: ret.data.{{dados1.nome}}.id + " - " + ret.data.{{dados1.nome}}.title,
                     descricao: ret.data.{{dados1.nome}}.lore,
-                    imagem: "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados1.nome}}_0.jpg"
+                    imagem: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados1.nome}}_0.jpg"
                 }
                 criarElement(casa);
                 console.log(casa)
@@ -293,7 +293,7 @@
 }
 
 function pegaChamp3(){
-    const url2 = "http://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados3.nome}}.json";
+    const url2 = "https://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados3.nome}}.json";
         fetch(url2)
             .then((resp) => resp.json())
             .then((ret) => {
@@ -301,7 +301,7 @@ function pegaChamp3(){
                 casa =  {
                     nome: ret.data.{{dados3.nome}}.id + " - " + ret.data.{{dados3.nome}}.title,
                     descricao: ret.data.{{dados3.nome}}.lore,
-                    imagem: "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados3.nome}}_0.jpg"
+                    imagem: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados3.nome}}_0.jpg"
                 }
                 criarElement(casa);
                 console.log(casa)
@@ -310,7 +310,7 @@ function pegaChamp3(){
 }
 
 function pegaChamp2(){
-    const url3 = "http://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados2.nome}}.json";
+    const url3 = "https://ddragon.leagueoflegends.com/cdn/11.10.1/data/pt_BR/champion/{{dados2.nome}}.json";
         fetch(url3)
             .then((resp) => resp.json())
             .then((ret) => {
@@ -318,7 +318,7 @@ function pegaChamp2(){
                 casa =  {
                     nome: ret.data.{{dados2.nome}}.id + " - " + ret.data.{{dados2.nome}}.title,
                     descricao: ret.data.{{dados2.nome}}.lore,
-                    imagem: "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados2.nome}}_0.jpg"
+                    imagem: "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/{{dados2.nome}}_0.jpg"
                 }
                 criarElement(casa);
                 console.log(casa)
