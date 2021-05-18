@@ -108,28 +108,164 @@
             <span class="text-center mb-2">
               Você ainda não fez o quiz, se desejar fazê-lo clique no botão abaixo.
             </span>
-            <button type="button" id="refazer" class="btn w-50 btn-primary mx-auto"><a href="/usuarioQuiz"
-                style="color:white; text-decoration:none;">Fazer
-                Quiz</a> </button>
+            <button type="button" id="refazer" class="btn w-50 btn-primary mx-auto" onclick="window.location.href='/usuarioQuiz'">Fazer
+                Quiz </button>
           </div>
         {{else}}   
-          <div class="">
-            <button type="button" class="collapsible">Campeões</button>
-            <div class="content" id="content">
-              
-            </div>
-            <button type="button" class="collapsible">Rota</button>
-            <div class="content2">
-              <p>Depois de uma análise precisa, a melhor rota para você começar a jogar é: {{rota.funcao}}</p>
+           <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Campeões
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <div class="content" id="content"></div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Rota
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <p>Depois de uma análise precisa, a melhor rota para você começar a jogar é: <strong>{{rota.funcao}}</strong> </p>
               <p>{{rota.descricaoFuncao}}</p>
               <div class="imagem-rotas row">
                 <img src="/public/images/rotas.png" class="img-fluid mb-4 " alt="Rotas">
               </div>
-            </div>
-          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Wiki de termos úteis
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+            Bot, Top, Mid e Jungle: 
+            <ul>
+              <li>São os nomes das rotas Inferior, Topo, Meio e da Selva, respectivamente. Os jogadores de LoL costumam usar os nomes em inglês por costume, já que nos primeiros anos do jogo no Brasil não existiam servidores locais, somente os localizados nos Estados Unidos.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Ward:
+            <ul>
+              <li>O mesmo que Sentinela. A Sentinela é um item que fornece visão estratégica para o time em locais remotos do mapa, clareando a Névoa de Guerra, também conhecida como Fog of War ou simplesmente Fog.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Wardar:
+            <ul>
+              <li>O ato de sair da Rota (ou Lane) para se posicionar sentinelas, normalmente nos arbustos que estão espalhados pelo mapa.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Lane:
+            <ul>
+              <li>O mesmo que Rota</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Bush:
+            <ul>
+              <li>O mesmo que arbusto</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            CC (ou crowd control):
+            <ul>
+              <li>Não, nesse caso não é o fedor no sovaco do seu amigo que esqueceu de passar desodorante. CC, ou crowd control, se refere a controle de grupo, que são habilidades que restringem sua movimentação, uso de habilidades ou até mesmo ambos.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            IK (ou Instant Kill): 
+            <ul>
+              <li>Quando um campeão inimigo causa um dano absurdamente alto, sendo capaz de executar você ou um aliado em um curtíssimo período de tempo.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Buff:
+            <ul>
+              <li>Efeitos positivos que são adquiridos ao longo da partida.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Fog of War ou Fog:
+            <ul>
+              <li>O nome em inglês para a anteriormente citada Névoa de Guerra, que são áreas que normalmente ficam escuras no mapa, mas que podem ser clareadas pelas Sentinelas (ou Wards).</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Torres:
+            <ul>
+              <li>São estruturas presentes em cada rota, tendo um total de 3 torres por rota. Para se finalizar o jogo, deve-se, no mínimo derrubar todas as torres de uma das 3 rotas (top, mid ou bot), um inibidor, as 2 torres do Nexus e o próprio Nexus.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Inibidor (ou Inib):
+            <ul>
+              <li>Uma estrutura que é protegida pela terceira torre de cada rota. Quando destruído, permite que super tropas do time inimigo comecem a surgir. As super tropas serão explicadas no tópico sobre minions, juntamente com os outros tipos.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Nexus:
+            <ul>
+              <li>O objetivo final do jogo. A equipe que, por meio dos fortalecimentos e evolução obtidos ao longo da partida conseguir derrubar o Nexus inimigo primeiro, vence.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Tropas:
+            <ul>
+              <li>São pequenas unidades que saem da sua base e ficam presentes nas rotas, surgindo sempre em ondas de 6. A cada 3 ondas (ou waves) surge uma tropa a mais, a catapulta (os tipos de tropas serão explicados no próximo tópico). As tropas andam sempre em direção a base inimiga, e se encontram com a onda de tropas inimiga no meio de cada uma das rotas. O ato de se abater essas tropas é chamado de farming (ou farmar, como dizem os brasileiros), o que será explicado posteriormente.</li>
+            </ul>
+            Tipos: 
+           <ul>
+              <li>Guerreiros (ou guerreirinhos): tropas de curto alcance que batem de perto</li>
+              <li>Magos (ou maguinhos): são tropas de longo alcance, que causam dano de longe</li>
+              <li>Catapulta (ou catapa/canhão): são as tropas de maior alcance, que surgem a cada 3 ondas de tropas. São também as tropas mais valiosas entre as 3.</li>
+              <li>Super Tropas (ou super minions): um tipo de tropa especial que surge após o inibidor de um dos times ser derrubado. Possuem uma quantidade absurdamente maior de vida do que as 3 anteriores, e servem normalmente para empurrar as rotas por mais tempo com facilidade e finalizar o jogo.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Farmar:
+            <ul>
+              <li>É o ato de se abater as tropas (ou minions) para se obter ouro e experiência para fortalecer seu campeão com itens e habilidades.</li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            Dragão (ou Drag/Drake), Arauto, Barão (ou Baron) e Ancião:
+            <ul>
+              <li>São os 3 principais objetivos neutros do jogo.</li>
+              <li>
+                Dragões: Cada um dos 4 dragões, quando abatido, fornece algum efeito positivo para a equipe que o abateu; 
+              </li>
+              <li>
+                Arauto do Vale: Um monstro que quando abatido deixa para trás seu olho, que pode ser coletado para ser posteriormente invocado e ajudar a empurrar uma rota causando uma enorme quantidade de dano em torres;
+              </li>
+              <li>
+                Barão Na’Shor (também conhecido como Baron): Um monstro que quando abatido fornece para todos os membros vivos da equipe que o abateu um efeito que fortalece as tropas, dando a elas mais vida, dano e alcance, o que permite que as rotas sejam empurradas com maior facilidade.
+              </li>
+              <li>
+                Ancião: se refere ao Dragão Ancião, um dos objetivos de final de partida, juntamente com o Baron. Quando abatido fornece aos membros vivos da equipe um efeito de queimação contínua ao causar dano em um inimigo e um efeito de execução quando a vida de um Campeão inimigo tem sua vida reduzida a 20% ou menos.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
           {{/if}}
         </div>
-        
       </div>
     </div>
 </body>
@@ -197,7 +333,6 @@ function criarElement(data){
   divtitulo.classList.add("titulo");
   pTitulo = document.createElement("p");
   strongTitulo = document.createElement("strong");
-
   textoStrong = document.createTextNode(data.nome);
 
   strongTitulo.appendChild(textoStrong);

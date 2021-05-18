@@ -1,5 +1,5 @@
-const db = require("./db");
-const bancoLOL = 2
+//const db = require("./db");
+const bd = require("./dbmongo")
 const rotaSup = ". Quando você decide por jogar de suporte, precisa compreender que ele está no jogo com o intuito de ajudar o Atirador a adquirir seus recursos, conceder visão para o time e realizar a proteção de seus parceiros. Além disso, o suporte, na Fase de Rotas, é capaz de se movimentar pelo mapa para, além de garantir a visão, auxiliar seus parceiros de time com o que estiver ao seu alcance."
 const rotaadc= "", rotaJg = "", rotaMid = "",rotaTop = "";
 
@@ -11,21 +11,17 @@ module.exports = {
 
     /*Colocar todo codigo de vericacao de login*/
     async login(req, res, next) {
-        const valores = await db.selectUserLogin({
-            email: req.body.email,
-            senha: req.body.senha
-        })
-        if (valores[0]) {
-            req.session.idusuario = valores[0].id;
-            req.session.usuEmail = valores[0].email;
-            req.session.usuario = valores[0].nomeUsuario;
-            req.session.imagem = valores[0].imagem
+        const valor = await bd.selectUserLogin({email: req.body.email, senha:req.body.senha})
+        if(valor[0]){
+            req.session.idusuario = valor[0]._id;
+            req.session.usuEmail = valor[0].email;
+            req.session.usuario = valor[0].nomeUsuario;
+            req.session.imagem = valor[0].imagem
             res.redirect("usuarioSeguranca")
-        } else {
+        }else{
             info = { error: "erro"}
             res.render("index", {info})
         }
-
     },
 
     esqueciSenha(req, res, next){
@@ -33,10 +29,9 @@ module.exports = {
     },
 
     async esqueciSenha2(req, res, next){ 
-        const valor = await db.selectEmail({
+        const valor = await bd.selectEmail({
             email: req.body.email
         })
-        console.log(valor)
         if(valor[0] != null) {
             info = {recuperar: 'valor' , email: req.body.email}
             res.render('esqueciSenha', {info})
@@ -45,8 +40,7 @@ module.exports = {
             info = {error: 'fail'}
             res.render('esqueciSenha', {info})
             
-        }
-       
+        }  
     },
 
     cadastro(req, res, next){
@@ -54,7 +48,8 @@ module.exports = {
     },
 
     async cadastre(req,res,next){
-        try {const valores = await db.insertUser({
+        try {
+            const valores = await bd.insertUser({
             email:req.body.email,
             usuario:req.body.usuario,
             senha: req.body.senha
@@ -66,7 +61,8 @@ module.exports = {
     },
     
     async recuperacaoSenha(req,res,next){
-        try {const valor = await db.updateSenha({
+        try {
+            const valor = await bd.updateSenha({
             email: req.body.email, 
             senha: req.body.senha
         })
@@ -96,36 +92,36 @@ module.exports = {
         if (!req.session.idusuario) {
             res.redirect('/')
         } else {
-            const valores1 = await db.selectUserFezQuiz({
+            const valores1 = await bd.selectUserFezQuiz({
                 id: req.session.idusuario
             })
             if (valores1[0].fezQuiz) {
                 try {
-                    var valores = await db.selectCampeao({
-                        idjog: req.session.idusuario,
+                    var valores = await bd.selectCampeao({
+                        email: req.session.usuEmail,
                         idcampeao: 1
                     })
                     let dados1 = {
                         nome: valores[0].nomeCampeao
                     }
 
-                    var valores = await db.selectCampeao({
-                        idjog: req.session.idusuario,
+                     valores = await bd.selectCampeao({
+                        email: req.session.usuEmail,
                         idcampeao: 2
                     })
                     let dados2 = {
                         nome: valores[0].nomeCampeao
                     }
 
-                    var valores = await db.selectCampeao({
-                        idjog: req.session.idusuario,
+                     valores = await bd.selectCampeao({
+                        email: req.session.usuEmail,
                         idcampeao: 3
                     })
                     let dados3 = {
                         nome: valores[0].nomeCampeao
                     }
 
-                    const valores2 = await db.selectRota({
+                    var valores2 = await bd.selectRota({
                         idJog: req.session.idusuario
                     })
                     let rota = {
@@ -146,7 +142,7 @@ module.exports = {
                         rota
                     })
                 } catch (err) {
-
+                    console.log(err)
                 }
             } else {
                 let info = {
@@ -173,7 +169,7 @@ module.exports = {
         if (!req.session.idusuario) {
             res.redirect('/')
         } else {
-            const valores = await db.selectUserUpdate({
+            const valores = await bd.selectUserUpdate({
                 id: req.session.idusuario
             })
             var email = valores[0].email;
@@ -198,24 +194,25 @@ module.exports = {
                 imagem = req.body.avatar;
                 req.session.imagem = req.body.avatar;
             }
-            var valores2 = "";
+
             try {
-                valores2 = await db.updateUser({
+                var valores2 = await bd.updateUser({
                     email: email,
                     senha: senha,
                     imagem: imagem,
                     Usuario: nomeUsuario,
                     id: req.session.idusuario
                 })
+                res.redirect("/usuarioSeguranca")
             } catch (err) {
+                req.session.usuEmail = valores[0].email;
+                req.session.usuario = valores[0].nomeUsuario;
+                req.session.imagem = valores[0].imagem;
                 res.status(424).send("Não foi possivel atualizar o cadastro tente novamente!")
             }
 
-            if (valores2[0]) {
-                res.redirect("/usuarioSeguranca")
-            } else {
-                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente!")
-            }
+            
+                
 
         }
     },
@@ -224,7 +221,7 @@ module.exports = {
         if (!req.session.idusuario) {
             res.redirect('/')
         } else {
-            const valores = await db.selectUserFezQuiz({
+            const valores = await bd.selectUserFezQuiz({
                 id: req.session.idusuario
             })
             let info = {
@@ -333,9 +330,9 @@ module.exports = {
             let maior = -4
             let qualMaior = ""
 
-            if (adc> maior) {
+            if (adc > maior) {
                 maior = adc;
-                qualMaior = "adc" + rotaADC
+                qualMaior = "adc" + rotaadc
             }
             if (sup > maior) {
                 maior = sup
@@ -356,7 +353,7 @@ module.exports = {
 
             //update no fez quiz
             try {
-                const valores = await db.updateUserQuiz({
+                const valores = await bd.updateUserQuiz({
                     id: req.session.idusuario
                 })
             } catch (err) {
@@ -371,7 +368,7 @@ module.exports = {
                 idUsuario: req.session.idusuario
             }
             try {
-                const valores2 = await db.insertQuiz(dados)
+                var valores2 = await bd.insertQuiz(dados)
             } catch (err) {
                 res.status(424).send("Não foi possivel atualizar o cadastro tente novamente!")
             }
@@ -379,7 +376,7 @@ module.exports = {
 
             //inserindo na jogabilidade
             var rota = ""
-            if (qualMaior == ('suporte'+rotaSup) || qualMaior == ("adc"+rotaADC)) {
+            if (qualMaior == ('suporte'+rotaSup) || qualMaior == ("adc"+rotaadc)) {
                 rota = "Bot Lane"
             } else if (qualMaior == ('jungle'+rotaJg)) {
                 rota = "Selva"
@@ -396,19 +393,19 @@ module.exports = {
             }
 
             try {
-                const valores3 = await db.insertJogabilidade(dados)
+                const valores3 = await bd.insertJogabilidade(dados)
             } catch (err) {
-                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente!")
+                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente! 1")
             }
 
 
             //inserindo no campeoes
 
-            var champadc= ["Draven", "Ashe", "Ezreal", "Vayne", "Caitlyn"],
-                champSup = ["Leona", "Thresh", "Janna", "Morgana", "Soraka"],
-                champJg = ["Ekko", "Graves", "Kayn", "Fiddlesticks", "Rengar"],
-                champTop = ["Darius", "Diana", "DrMundo"],
-                champMid = ["Katarina", "Qiyana", "TwistedFate"]
+            var champadc= ["Tristana", "Ashe", "Ezreal", "Sivir", "Caitlyn","MissFortune"],
+                champSup = ["Leona", "Thresh", "Nami", "Morgana", "Soraka","Yuumi","Lulu","Lux"],
+                champJg = ["Ekko", "Graves", "Kayn", "Fiddlesticks", "Rengar","MasterYi"],
+                champTop = ["Illaoi", "Garen", "Riven","Mordekaiser","Malphite","Volibear"],
+                champMid = ["Annie","Lux","TwistedFate","MasterYi","Talon","Fizz"]
 
             let numeros = []
             let campeoes = [];
@@ -417,10 +414,10 @@ module.exports = {
                 for (i = 0; i < 3; i++) {
                     campeoes[i] = champSup[numeros[i]]
                 }
-            } else if (qualMaior == ("adc"+rotaADC)) {
-                numeros = getRandom(champAdc.length, numeros)
+            } else if (qualMaior == ("adc"+rotaadc)) {
+                numeros = getRandom(champadc.length, numeros)
                 for (i = 0; i < 3; i++) {
-                    campeoes[i] = champAdc[numeros[i]]
+                    campeoes[i] = champadc[numeros[i]]
                 }
             } else if (qualMaior == ('jungle'+rotaJg)) {
                 numeros = getRandom(champJg.length, numeros)
@@ -439,39 +436,38 @@ module.exports = {
                 }
             }
             dados = {
-                id_jog: req.session.idusuario,
+                email: req.session.usuEmail,
                 nomeCampeao: campeoes[0],
                 idcampeao: 1
             }
 
             try {
-                var valores4 = await db.insertCampeoes(dados)
+                var valores4 = await bd.insertCampeoes(dados)
             } catch (err) {
-                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente!")
+                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente! 2")
             }
 
-
             dados = {
-                id_jog: req.session.idusuario,
+                email: req.session.usuEmail,
                 nomeCampeao: campeoes[1],
                 idcampeao: 2
             }
             try {
-                var valores4 = await db.insertCampeoes(dados)
+                var valores4 = await bd.insertCampeoes(dados)
             } catch (err) {
-                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente!")
+                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente! 3")
             }
 
 
             dados = {
-                id_jog: req.session.idusuario,
+                email: req.session.usuEmail,
                 nomeCampeao: campeoes[2],
                 idcampeao: 3
             }
             try {
-                var valores4 = await db.insertCampeoes(dados)
+                var valores4 = await bd.insertCampeoes(dados)
             } catch (err) {
-                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente!")
+                res.status(424).send("Não foi possivel atualizar o cadastro tente novamente! 4")
             }
             console.log('fez quiz ');
             res.redirect("usuarioResultado")
@@ -572,7 +568,7 @@ module.exports = {
 
             if (adc> maior) {
                 maior = adc;
-                qualMaior = "adc" + rotaADC
+                qualMaior = "adc" + rotaadc
             }
             if (sup > maior) {
                 maior = sup
@@ -598,12 +594,12 @@ module.exports = {
                 id: req.session.idusuario
             }
 
-            const valores2 = await db.updateQuiz(dados)
+            var valores2 = await bd.updateQuiz(dados)
             arr = "quiz"
 
             //update na jogabilidade
             var rota = ""
-            if (qualMaior == ('suporte'+rotaSup) || qualMaior == ("adc"+rotaADC)) {
+            if (qualMaior == ('suporte'+rotaSup) || qualMaior == ("adc"+rotaadc)) {
                 rota = "Bot Lane"
             } else if (qualMaior == ('jungle'+rotaJg)) {
                 rota = "Selva"
@@ -618,16 +614,16 @@ module.exports = {
                 rota: rota,
                 funcao: qualMaior
             }
-            const valores3 = await db.updateJogabilidade(dados)
+            const valores3 = await bd.updateJogabilidade(dados)
             arr = "jogab"
 
             //inserindo no campeoes
 
-            var champadc= ["Draven", "Ashe", "Ezreal", "Vayne", "Caitlyn"],
-                champSup = ["Leona", "Thresh", "Janna", "Morgana", "Soraka"],
-                champJg = ["Ekko", "Graves", "Kayn", "Fiddlesticks", "Rengar"],
-                champTop = ["Darius", "Diana", "DrMundo"],
-                champMid = ["Katarina", "Qiyana", "TwistedFate"]
+            var champadc= ["Tristana", "Ashe", "Ezreal", "Sivir", "Caitlyn","MissFortune"],
+            champSup = ["Leona", "Thresh", "Nami", "Morgana", "Soraka","Yuumi","Lulu","Lux"],
+            champJg = ["Ekko", "Graves", "Kayn", "Fiddlesticks", "Rengar","MasterYi"],
+            champTop = ["Illaoi", "Garen", "Riven","Mordekaiser","Malphite","Volibear"],
+            champMid = ["Annie","Lux","TwistedFate","MasterYi","Talon","Fizz"]
 
             let numeros = []
             let campeoes = [];
@@ -636,10 +632,10 @@ module.exports = {
                 for (i = 0; i < 3; i++) {
                     campeoes[i] = champSup[numeros[i]]
                 }
-            } else if (qualMaior == ("adc"+rotaADC)) {
-                numeros = getRandom(champAdc.length, numeros)
+            } else if (qualMaior == ("adc"+rotaadc)) {
+                numeros = getRandom(champadc.length, numeros)
                 for (i = 0; i < 3; i++) {
-                    campeoes[i] = champAdc[numeros[i]]
+                    campeoes[i] = champadc[numeros[i]]
                 }
             } else if (qualMaior == ('jungle'+rotaJg)) {
                 numeros = getRandom(champJg.length, numeros)
@@ -658,29 +654,29 @@ module.exports = {
                 }
             }
             dados = {
-                idjog: req.session.idusuario,
+                email: req.session.usuEmail,
                 nomeCampeao: campeoes[0],
                 idcampeao: 1
             }
-            var valores4 = await db.updateCampeoes(dados)
+            var valores4 = await bd.updateCampeoes(dados)
             arr = "idcamp 1"
 
             dados = {
-                idjog: req.session.idusuario,
+                email: req.session.usuEmail,
                 nomeCampeao: campeoes[1],
                 idcampeao: 2
             }
 
-            var valores4 = await db.updateCampeoes(dados)
+            var valores4 = await bd.updateCampeoes(dados)
             arr = "idcamp 2"
             dados = {
-                idjog: req.session.idusuario,
+                email: req.session.usuEmail,
                 nomeCampeao: campeoes[2],
                 idcampeao: 3
             }
-            var valores4 = await db.updateCampeoes(dados)
+            var valores4 = await bd.updateCampeoes(dados)
             arr = "idcamp 3"
-            console.log('update quiz');
+            //console.log('update quiz');
             res.redirect("usuarioResultado")
             
         }catch(err){
@@ -691,7 +687,6 @@ module.exports = {
     },
 
     sair(req, res, next) {
-        console.log(req.session.idusuario + " saiu")
         req.session.destroy();
         res.redirect('/')
     }
